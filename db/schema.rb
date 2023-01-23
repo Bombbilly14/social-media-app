@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2023_01_21_185826) do
     t.string "avatar"
     t.string "password_digest"
     t.string "email"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
