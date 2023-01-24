@@ -1,8 +1,16 @@
 import React from 'react'
 
-const ProfileCard = () => {
+const ProfileCard = ({users}) => {
   return (
-    <div>ProfileCard</div>
+    <div>
+      {users.map(user => (
+        <div key={user.id}>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+          <p>{user.avatar}</p>
+        </div>
+      ))}
+    </div>
   )
 }
 
