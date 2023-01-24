@@ -19,6 +19,7 @@ const Home = () => {
     key={post.id}
     content={post.content}
     user={post.user.name}
+    // comment={post.comment.content}
     avatar={post.user.avatar}
     slugify={post.user.slugify}
     />
