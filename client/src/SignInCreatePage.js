@@ -1,11 +1,11 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import RegistrationForm from './RegistrationForm'
+import SignIn from "./SignIn.js"
 
-function SignInForm() {
+function SignInCreatePage() {
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    
     const [user, setUser] = useState()
 
     useEffect(()=> {
@@ -20,24 +20,6 @@ function SignInForm() {
       } )
     }, [])
 
-    const createAccount = (e) => {
-        e.preventDefault()
-        fetch('/users', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({username, password}),
-    })
-    .then(r => r.json())
-    .then((data) => {
-      if(data.error) {
-        setUser(null)
-      } else {
-      setUser(data)
-      }
-    })
-    }
 
     const logout = () => {
       fetch('/logout', {
@@ -62,11 +44,11 @@ function SignInForm() {
       {user === null ? (
         <>
         <RegistrationForm  setUser={setUser}/>
-        {/* <SignIn /> */}
+        <SignIn setUser={setUser}/>
         </>
     ) : null}
     </div>
   )
 }
 
-export default SignInForm
+export default SignInCreatePage

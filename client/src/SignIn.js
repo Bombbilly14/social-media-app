@@ -2,24 +2,11 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import RegistrationForm from './RegistrationForm'
 
-function SignIn() {
+function SignIn({setUser}) {
     // this is not ok :(
 
-    const [username, setUsername] = useState("")
+    const [name, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [user, setUser] = useState()
-
-    useEffect(()=> {
-      fetch('/me')
-      .then(r => r.json())
-      .then(data => {
-        if(data.error) {
-          setUser(null)
-        } else {
-        setUser(data)
-        }
-      } )
-    }, [])
 
     const login = (e) => {
         e.preventDefault()
@@ -28,44 +15,43 @@ function SignIn() {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({username, password}),
+        body: JSON.stringify({name, password}),
     })
     .then(r => r.json())
     .then((data) => {
-      if(data.error) {
-        setUser(null)
-      } else {
+      if (!data.error) {
       setUser(data)
       }
     })
-    }
-
-    const logout = () => {
-      fetch('/logout', {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "Application/json"
-
-      }
-    })
-    .then (() => {
-      setUser(null)
-    })
-
     }
 
     // const isSignedIn = !!user;
 
   return (
     <div>
-      {user ? <button onClick ={logout}>Logout</button> : null}
-      <h1>Welcome {user ? ` ${user.name}`: null}</h1>
-      {user === null ? (
-        <>
-        <RegistrationForm  setUser={setUser}/>
-        <SignIn />
-        </>
-    ) : null}
+
+    <>
+    <h2>Sign in</h2>
+    <form onSubmit={login}>
+        <label htmlFor="signInName">name</label>
+        <input
+        // type="text"
+        id="signInName"
+        value={name}
+        onChange={ e => setUsername(e.target.value)}/>
+        <br />
+        <label htmlFor="signInPassword">Password</label>
+        <input
+        type="password"
+        id="signInPassword"
+        value ={password}
+        onChange={ (e) => setPassword(e.target.value)}
+         />
+        <input type= "submit" value="Sign In" />
+    </form>
+    </>
+
+
     </div>
   )
 }

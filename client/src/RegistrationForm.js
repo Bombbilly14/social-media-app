@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 function RegistrationForm({setUser}) {
-  const [username, setUsername] = useState("")
+  const [name, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
   const createAccount = (e) => {
@@ -11,7 +11,7 @@ function RegistrationForm({setUser}) {
     headers: {
         "Content-Type": "application/json",
     },
-    body: JSON.stringify({username, password}),
+    body: JSON.stringify({name, password}),
 })
 .then(r => r.json())
 .then((data) => {
@@ -23,22 +23,26 @@ function RegistrationForm({setUser}) {
 })
 }
   return (
+    <>
+    <h2>Sign Up!</h2>
     <form onSubmit={createAccount}>
-        <label htmlFor="sign-in-username">Username</label>
+        <label htmlFor="name">name</label>
         <input
         // type="text"
-        id="sign-in-username"
-        value={username}
+        id="name"
+        value={name}
         onChange={ e => setUsername(e.target.value)}/>
+        <br />
         <label htmlFor="password">Password</label>
         <input
         type="password"
-        id="sign-in-password"
+        id="password"
         value ={password}
         onChange={ (e) => setPassword(e.target.value)}
          />
         <input type= "submit" value="create account" />
     </form>
+    </>
   )
 }
 

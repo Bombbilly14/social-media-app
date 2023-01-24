@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
 
     def show
@@ -18,7 +18,7 @@ class SessionController < ApplicationController
             session[:user_id] = user.id
             render json: user
         else
-            render json: {error: "Incorrect username or password"}
+            render json: {error: "Incorrect name or password"}
         end
 
       end
