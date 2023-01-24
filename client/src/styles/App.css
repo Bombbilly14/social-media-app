@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 100px;
+  border-color: #282c34;
+  }
+
+  .post-avatar {
+    height: 50px;
+    width: 50px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 100%;
+  }
