@@ -6,6 +6,7 @@ import Profile from './Profile.js';
 import NavBar from './NavBar';
 import Messages from './Messages.js'
 import Notifications from './Notifications.js'
+import SignInCreatePage from './SignInCreatePage.js';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/messages" element={<Messages/>} />
         <Route path="/notifications" element={<Notifications/>} />
         <Route exact path="/" element={<Home/>} />
+        <Route path="/signin" element={<SignInCreatePage />} />
         {/* <Route exact path="/" render={() => <Navigate replace to="/home" />} /> */}
       </Routes>
     </div>
