@@ -1,5 +1,5 @@
 class UsersWithPostsSerializer < ActiveModel::Serializer
-  attributes :id, :name, :avatar, :password_digest, :email
+  attributes :id, :name, :avatar, :email
   has_many :posts
   has_many :comments
 end

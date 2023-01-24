@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const LikeButton = () => {
-  const [likes, setLikes] = useState(100);
+  const [likes, setLikes] = useState([0]);
   const [isClicked, setIsClicked] = useState(false);
+
+//   useEffect(() => {
+//     fetch("/posts")
+//       .then((r) => r.json())
+//       .then((data) => setPosts(data));
+//   }, []);
+ 
+//   const mappedLikes = posts?.map(post => {
+//     return <LikeButton
+//     key={post.id}
+//     likes={post.likes}
+//     />
+//     })
 
   const handleClick = () => {
     if (isClicked) {
