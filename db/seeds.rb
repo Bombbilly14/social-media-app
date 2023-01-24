@@ -10,12 +10,12 @@ require 'pry'
     puts "🌱 Seeding data..."
     
 
-    u1=User.create(name: "Jason T", email: "ex1@ex1.com", password: "jason", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u2=User.create(name: "William G", email: "ex2@ex2.com", password: "william", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u3=User.create(name: "Ryan S", email: "ex3@ex3.com", password: "ryan", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u4=User.create(name: "Keith M", email: "asd@asd,c", password: "keith", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u5=User.create(name: "Ian H", email: "asdsad.asdsad.com", password: "ian", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u6=User.create(name: 'Bobby F', email: 'bobby@example.com', password: 'password', avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u1=User.create(name: "Jason T", bio: "Bio for Jason", email: "ex1@ex1.com", password: "jason", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u2=User.create(name: "William G", bio: "Bio for William", email: "ex2@ex2.com", password: "william", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u3=User.create(name: "Ryan S", bio: "Bio for Ryan", email: "ex3@ex3.com", password: "ryan", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u4=User.create(name: "Keith M", bio: "Bio for Keith", email: "asd@asd,c", password: "keith", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u5=User.create(name: "Ian H", bio: "Bio for Ian", email: "asdsad.asdsad.com", password: "ian", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u6=User.create(name: 'Bobby F', bio: "Bio for Bobby", email: 'bobby@example.com', password: 'password', avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
 
     p1=Post.create(content: "This is post 1", likes: "4", user_id: u1.id)
     p2=Post.create(content: "This is post 2", likes: "6", user_id: u2.id)
