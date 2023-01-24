@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import ProfileCard from './ProfileCard';
 
 const Profile = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("/users")
+      .then(res => res.json())
+      .then(userData => setUsers(userData));
+  }, []);
+
   return (
-    <div>Profile</div>
-  )
+    <div>
+      <ProfileCard users={users} />
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;
