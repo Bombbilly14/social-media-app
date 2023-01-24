@@ -44,6 +44,7 @@
   width: 40%;
   padding-left: 7cm;
   padding-right: 8cm;
+  padding-top: .5cm;
  }
 
 .card:hover {
@@ -57,10 +58,32 @@
     border-radius: 100%;
   }
 
-  .post-author {
-    text-align: left;
-  }
 
-  .post-likes {
-    word-wrap: break-word;
-  }
+  .post {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* Use grid-gap to add space between the columns */
+.post {
+    grid-gap: 10px;
+}
+
+.post:hover {
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+.post-author {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.post-content {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.post-comment-count {
+  font-size: 0.8em;
+  font-weight: bold;
+}
