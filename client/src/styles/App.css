@@ -37,17 +37,14 @@
   }
 }
 
-
 .card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: #fff;
-  padding-top: 5;
-  border-radius: 5px;
-  padding: 100px;
-  border-block-start: solid; 
-  writing-mode: horizontal-tb;
-  }
+  height: 10em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 7cm;
+  padding-right: 8cm;
+ }
 
 .card:hover {
   background-color: rgb(237, 237, 237);
@@ -58,4 +55,12 @@
     width: 50px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 100%;
+  }
+
+  .post-author {
+    text-align: left;
+  }
+
+  .post-likes {
+    word-wrap: break-word;
   }

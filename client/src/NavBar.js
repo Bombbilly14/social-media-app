@@ -5,8 +5,9 @@ import "./styles/NavBar.css"
 
 
 function NavBar() {
+
 	return (
-		<div>
+		<div className ="nav-bar">
 			{/* <Link to="/users">
 				<img src={favicon} alt="logo" style={{ width: "40px" }} />
 			</Link> */}
