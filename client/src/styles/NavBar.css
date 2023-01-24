@@ -77,3 +77,10 @@ button span:focus {
 button:disabled {
 	opacity: 0.5;
 }
+
+.nav-bar {
+	position: sticky;
+	top: 0;
+	background-color: transparent;
+  }
+  
