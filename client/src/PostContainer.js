@@ -13,7 +13,7 @@ const PostContainer = (post) => {
       };
 
 return (
-    <div className="card post">
+<div className="card post">
         <div className="post-header">
             <img src={post.avatar} alt="" className="post-avatar" />
             <Link to={`/users/${post.slug}`}>
@@ -25,7 +25,14 @@ return (
         </div>
         <div className="post-footer">
             <LikeButton className="post-like-button" />
-            {/* <div className="post-comment-count">{post.comment.length} Comments</div> */}
+            <div className="post-comments">
+                {post.comments.map((comment, index) => (
+                    <div key={index} className="post-comment">
+                        <p>{comment.content}</p>
+                        <p>- {comment.user_id}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
 )
