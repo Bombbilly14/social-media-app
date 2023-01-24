@@ -11,17 +11,18 @@ const Home = () => {
       .then((r) => r.json())
       .then((data) => setPosts(data));
   }, []);
-
+ 
   const mappedPosts = posts?.map(post => {
     return <PostContainer
     key={post.id}
     content={post.content}
     user={post.user.name}
     avatar={post.user.avatar}
+    slugify={post.user.slugify}
     />
 })
-console.log(mappedPosts)
 
+console.log(mappedPosts)
   return (
     <div>Dashboard
       {mappedPosts}

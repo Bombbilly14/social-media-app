@@ -7,4 +7,10 @@ class User < ApplicationRecord
     has_secure_password
 
     validates_presence_of :name, :email, :password
+
+    before_create :slugify
+
+    def slugify
+        self.slug = user.name.parameterize
+    end
 end

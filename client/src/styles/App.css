@@ -42,10 +42,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #fff;
+  padding-top: 5;
   border-radius: 5px;
   padding: 100px;
-  border-color: #282c34;
+  border-block-start: solid; 
+  writing-mode: horizontal-tb;
   }
+
+.card:hover {
+  background-color: rgb(237, 237, 237);
+}
 
   .post-avatar {
     height: 50px;
