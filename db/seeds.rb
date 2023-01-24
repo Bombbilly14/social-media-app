@@ -10,20 +10,20 @@ require 'pry'
     puts "🌱 Seeding data..."
     
 
-    user1 = User.create!(name: 'Bobby', password: 'password', email: 'bobby@example.com')
-    u1=User.create(name: "Jason", email: "ex1@ex1.com", password: "jason")
-    u2=User.create(name: "William", email: "ex2@ex2.com", password: "william")
-    u3=User.create(name: "Ryan", email: "ex3@ex3.com", password: "ryan")
-    u4=User.create(name: "Keith", email: "asd@asd,c", password: "keith")
-    u5=User.create(name: "Ian", email: "asdsad.asdsad.com", password: "ian")
+    u1=User.create(name: "Jason T", email: "ex1@ex1.com", password: "jason", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u2=User.create(name: "William G", email: "ex2@ex2.com", password: "william", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u3=User.create(name: "Ryan S", email: "ex3@ex3.com", password: "ryan", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u4=User.create(name: "Keith M", email: "asd@asd,c", password: "keith", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u5=User.create(name: "Ian H", email: "asdsad.asdsad.com", password: "ian", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u6=User.create(name: 'Bobby F', email: 'bobby@example.com', password: 'password', avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
 
-    p1=Post.create(content: "This is post 1", user_id: u1.id)
-    p2=Post.create(content: "This is post 2", user_id: u2.id)
-    p3=Post.create(content: "This is post 3", user_id: u3.id)
-    p4=Post.create(content: "This is post 4", user_id: u4.id)
-    p5=Post.create(content: "This is post 5", user_id: u5.id)
-    p6=Post.create(content: "This is post 6", user_id: u1.id)
-    p7=Post.create(content: "This is post 7", user_id: u2.id)
+    p1=Post.create(content: "This is post 1", likes: "4", user_id: u1.id)
+    p2=Post.create(content: "This is post 2", likes: "6", user_id: u2.id)
+    p3=Post.create(content: "This is post 3", likes: "2", user_id: u3.id)
+    p4=Post.create(content: "This is post 4", likes: "9", user_id: u4.id)
+    p5=Post.create(content: "This is post 5", likes: "13", user_id: u5.id)
+    p6=Post.create(content: "This is post 6", likes: "4", user_id: u1.id)
+    p7=Post.create(content: "This is post 7", likes: "1", user_id: u2.id)
 
     c1=Comment.create(content: "This is comment 1", user_id: u1.id, post_id: p1.id)
     c2=Comment.create(content: "This is comment 2", user_id: u2.id, post_id: p2.id)
