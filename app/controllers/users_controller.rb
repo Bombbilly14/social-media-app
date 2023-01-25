@@ -32,8 +32,9 @@ class UsersController < ApplicationController
     private
 
     def find_user
-        User.find(params[:id])
+        User.find_by(slug: params[:id])
     end
+    
     def user_params
         params.permit(:name, :avatar, :email, :password)
     end
