@@ -3,8 +3,6 @@ import {useState, useEffect} from 'react'
 import RegistrationForm from './RegistrationForm'
 
 function SignIn({setUser}) {
-    // this is not ok :(
-
     const [name, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -25,7 +23,6 @@ function SignIn({setUser}) {
     })
     }
 
-    // const isSignedIn = !!user;
 
   return (
     <div>
@@ -33,9 +30,8 @@ function SignIn({setUser}) {
     <>
     <h2>Sign in</h2>
     <form onSubmit={login}>
-        <label htmlFor="signInName">name</label>
+        <label htmlFor="signInName">Name</label>
         <input
-        // type="text"
         id="signInName"
         value={name}
         onChange={ e => setUsername(e.target.value)}/>
@@ -47,7 +43,10 @@ function SignIn({setUser}) {
         value ={password}
         onChange={ (e) => setPassword(e.target.value)}
          />
+         <br/>
+         <div className="button-container">
         <input type= "submit" value="Sign In" />
+        </div>
     </form>
     </>
 

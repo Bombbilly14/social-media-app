@@ -2,11 +2,15 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import RegistrationForm from './RegistrationForm'
 import SignIn from "./SignIn.js"
+import Modal from 'react-modal';
+import "./styles/Form.css"
 
 function SignInCreatePage() {
-
-    
     const [user, setUser] = useState()
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+    
 
     useEffect(()=> {
       fetch('/me')
@@ -20,7 +24,6 @@ function SignInCreatePage() {
       } )
     }, [])
 
-
     const logout = () => {
       fetch('/logout', {
       method: "DELETE",
@@ -32,23 +35,27 @@ function SignInCreatePage() {
     .then (() => {
       setUser(null)
     })
-
     }
 
-    // const isSignedIn = !!user;
-
-  return (
-    <div>
-      {user ? <button onClick ={logout}>Logout</button> : null}
-      <h1>Welcome {user ? ` ${user.name}`: null}</h1>
-      {user === null ? (
-        <>
-        <RegistrationForm  setUser={setUser}/>
-        <SignIn setUser={setUser}/>
-        </>
-    ) : null}
-    </div>
-  )
+    return (
+      <div className="modalParent">
+        {user ? <button onClick={logout}>Logout</button> : null}
+        <h1>Welcome {user ? ` ${user.name}` : null}</h1>
+        {user === null ? (
+          <>
+            <SignIn setUser={setUser} />
+            <br/>
+            <button onClick={openModal}>Create Profile</button>
+            <Modal className={modalIsOpen ? "isOpen" : "isClosed"} isOpen={modalIsOpen} onRequestClose={closeModal} >
+              <br/>
+              <RegistrationForm setUser={setUser} />
+              
+              <button onClick={closeModal}>Close</button>
+            </Modal>
+          </>
+        ) : null}
+      </div>
+    );
 }
 
 export default SignInCreatePage
