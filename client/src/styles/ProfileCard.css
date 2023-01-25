@@ -1,14 +1,61 @@
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #f6d365;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+.card-container {
+  width: 500px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
 }
 
-card {
-  padding: 100px;
+.card-header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card-header {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  font-size: 36px;
+}
+
+.card-handle {
+  font-family: Arial, sans-serif;
+  color: #6c757d;
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-bio {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: #6c757d;
+}
+
+.card-post {
+  margin-top: 20px;
+  border-top: 1px solid #e6ecf0;
+  padding-top: 20px;
+}
+
+.card-post-content {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.card-post-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d
 }
