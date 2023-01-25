@@ -30,18 +30,21 @@ function SignIn({setUser}) {
     <>
     <h2>Sign in</h2>
     <form onSubmit={login}>
-        <label htmlFor="signInName">Name</label>
+        <label htmlFor="signInName"></label>
         <input
         id="signInName"
         value={name}
-        onChange={ e => setUsername(e.target.value)}/>
+        onChange={ e => setUsername(e.target.value)}
+        placeholder="Name"/>
+        
         <br />
-        <label htmlFor="signInPassword">Password</label>
+        <label htmlFor="signInPassword"></label>
         <input
         type="password"
         id="signInPassword"
         value ={password}
         onChange={ (e) => setPassword(e.target.value)}
+        placeholder="Password"
          />
          <br/>
          <div className="button-container">
