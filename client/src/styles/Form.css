@@ -1,62 +1,114 @@
 
-  button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  .modalParent {
-    position: relative;
-  }
+    button {
+      padding: 10px 30px;
+      border-radius: 15px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      /* margin-top: 20px; */
+      cursor: pointer;
+      margin-top: 50px;
+    }
+    button:hover {
+      padding: 10px 30px;
+      border-radius: 15px;
+      background-color: #84e788;
+      color: white;
+      font-size: 16px;
+      /* margin-top: 20px; */
+      cursor: pointer;
+      margin-top: 50px;
+    }
+    .modalParent {
+      position: fixed;
+      align-items: center;
+      height: 45%; /* adjust the height */
+      top: 25%; /* center the element vertically */
+      right: 0;
+      bottom: 0;
+      left: 40%; /* position the element slightly to the right horizontally */
+      margin: auto;
+      transform: translate(-5%, -50%);
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      padding-top: 100px;
+      padding-right: 10px;
+      width: 25%;
+      height: 45%;
+      /* display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) */
+      /* other styles */
+    }
+    
+    .sign-in-form {
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+    
+    }
 
-  .isOpen {
-    width: 40%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(253, 238, 229, 0.8);
-    border-radius: 10px;
-    padding: 30px;
-    position: absolute;
-    top: 10%;
-    left: 25%;
-  
+    .isOpen {
+      width: 40%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(253, 238, 229, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      position: absolute;
+      top: 10%;
+      left: 25%;
     
-   }
-    .isClosed {
-    background-color: rgba(255, 255, 255, 0.87);
-    display: center;
-    align-items: center;
-    justify-content: center;
-  }
-  form {
-    max-width: 200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  input[type="submit"] {
-    padding: 10px 30px;
-    border-radius: 5px;
-    align-self: center;
-    background-color: rgb(148, 181, 247);
-  }
-  
-  .button-container {
+      
+    }
+      .isClosed {
+      background-color: rgba(255, 255, 255, 0.87);
+      display: center;
+      align-items: center;
+      justify-content: center;
+    }
+    form {
+      max-width: 270px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input[type="submit"] {
+      padding: 20px 125px;
+      border-radius: 15px;
+      align-self: center;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: rgb(142, 150, 255);
     
-    text-align: center; /* center the button horizontally */
-  }
-  
-  label,input {
-    width: 100%;
-    border-radius: 5px;
-  }
+    }
+    input[type="submit"]:hover {
+      padding: 20px 125px;
+      border-radius: 15px;
+      align-self: center;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: rgb(166, 166, 238);
+    
+    }
+    
+    .button-container {
+      
+      text-align: center; /* center the button horizontally */
+    }
+    
+    input {
+      width: 100%;
+      border-radius: 5px;
+      padding: 20px
+    }
+    
   
   
   

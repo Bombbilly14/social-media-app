@@ -4,6 +4,7 @@ import RegistrationForm from './RegistrationForm'
 import SignIn from "./SignIn.js"
 import Modal from 'react-modal';
 import "./styles/Form.css"
+Modal.setAppElement('#root')
 
 function SignInCreatePage() {
     const [user, setUser] = useState()
@@ -46,7 +47,7 @@ function SignInCreatePage() {
             <SignIn setUser={setUser} />
             <br/>
             <button onClick={openModal}>Create Profile</button>
-            <Modal className={modalIsOpen ? "isOpen" : "isClosed"} isOpen={modalIsOpen} onRequestClose={closeModal} >
+            <Modal alt="modal waddup" className={modalIsOpen ? "isOpen" : "isClosed"} isOpen={modalIsOpen} onRequestClose={closeModal} >
               <br/>
               <RegistrationForm setUser={setUser} />
               

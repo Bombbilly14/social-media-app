@@ -25,10 +25,10 @@ function SignIn({setUser}) {
 
 
   return (
-    <div>
+    <div className="sign-in-form">
 
     <>
-    <h2>Sign in</h2>
+    {/* <h2>Sign in</h2> */}
     <form onSubmit={login}>
         <label htmlFor="signInName"></label>
         <input

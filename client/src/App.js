@@ -11,7 +11,13 @@ import ProfilePage from './ProfilePage';
 import MyProfile from './MyProfile';
 
 
+
+
+
 function App() {
+
+ 
+
   return (
     <>
       <NavBar />
@@ -25,6 +31,7 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route path="/signin" element={<SignInCreatePage />} />
         <Route path="/users/:username" element={<ProfilePage />} />
+        {/* <Route path="/*" element={<SignInCreatePage />} /> */}
         {/* <Route exact path="/" render={() => <Navigate replace to="/home" />} /> */}
       </Routes>
     </div>
