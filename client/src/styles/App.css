@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+  height: relative;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -93,6 +95,8 @@
 .post-comment {
   margin-top: 1rem;
 }
+
+
 
 .post-comment p:first-child {
   font-size: 1.2rem;

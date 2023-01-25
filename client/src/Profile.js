@@ -3,12 +3,13 @@ import ProfileCard from './ProfileCard';
 
 const Profile = () => {
   const [users, setUsers] = useState([]);
-
+  
   useEffect(() => {
     fetch("/users")
-      .then(res => res.json())
-      .then(userData => setUsers(userData));
+    .then(res => res.json())
+    .then(userData => setUsers(userData));
   }, []);
+  
 
   return (
     <div>

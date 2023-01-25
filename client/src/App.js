@@ -7,6 +7,8 @@ import NavBar from './NavBar';
 import Messages from './Messages.js'
 import Notifications from './Notifications.js'
 import SignInCreatePage from './SignInCreatePage.js';
+import ProfilePage from './ProfilePage';
+import MyProfile from './MyProfile';
 
 
 function App() {
@@ -17,11 +19,12 @@ function App() {
       <Routes>
         <Route path="/home" element={<Home/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/profile" element={<MyProfile/>} />
         <Route path="/messages" element={<Messages/>} />
         <Route path="/notifications" element={<Notifications/>} />
         <Route exact path="/" element={<Home/>} />
         <Route path="/signin" element={<SignInCreatePage />} />
+        <Route path="/users/:id" element={<ProfilePage />} />
         {/* <Route exact path="/" render={() => <Navigate replace to="/home" />} /> */}
       </Routes>
     </div>
