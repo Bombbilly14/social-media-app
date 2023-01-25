@@ -2,7 +2,9 @@ import React from 'react'
 
 import {useState, useEffect} from 'react'
 import PostContainer from './PostContainer'
-
+// {/* Jasons code */}
+import ProfilePage from './ProfilePage'
+// {/* Jasons code */}
 
 const Home = () => {
 
@@ -26,11 +28,19 @@ const Home = () => {
     />
 })
 
+
+
+
+
+
+
 console.log(mappedPosts)
   return (
     <div>Dashboard
       {mappedPosts}
-
+      {/* Jasons code */}
+    {/* <ProfilePage /> */}
+    {/* Jasons code */}
     </div>
   )
 }

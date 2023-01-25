@@ -1,5 +1,7 @@
 import { Route, Routes, Link } from "react-router-dom";
 import LikeButton from "./LikeButton";
+import ProfilePage from "./ProfilePage";
+import ProfileCard from "./ProfileCard";
 
 const PostContainer = (post) => {
 
@@ -16,7 +18,7 @@ return (
 <div className="card post">
         <div className="post-header">
             <img src={post.avatar} alt="" className="post-avatar" />
-            <Link to={`/users/${post.slug}`}>
+            <Link to={`/users/${post.slug}`} element={<ProfilePage />}>  {/* changed from post.slug */}
                 <h3 className="post-author">{post.user}</h3>
             </Link>
         </div>
@@ -36,6 +38,7 @@ return (
         </div>
     </div>
 )
+
 }
 
 export default PostContainer
