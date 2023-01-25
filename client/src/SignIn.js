@@ -48,7 +48,7 @@ function SignIn({setUser}) {
          />
          <br/>
          <div className="button-container">
-        <input type= "submit" value="Sign In" />
+        <input className="inputCreate"type= "submit" value="Sign In"  />
         </div>
     </form>
     </>

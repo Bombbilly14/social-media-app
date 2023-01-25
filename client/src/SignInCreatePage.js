@@ -7,10 +7,10 @@ import "./styles/Form.css"
 Modal.setAppElement('#root')
 
 function SignInCreatePage() {
-    const [user, setUser] = useState()
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+  const [user, setUser] = useState()
     
 
     useEffect(()=> {
@@ -46,12 +46,12 @@ function SignInCreatePage() {
           <>
             <SignIn setUser={setUser} />
             <br/>
-            <button onClick={openModal}>Create Profile</button>
+            <button className="button-create" onClick={openModal}>Create Profile</button>
             <Modal alt="modal waddup" className={modalIsOpen ? "isOpen" : "isClosed"} isOpen={modalIsOpen} onRequestClose={closeModal} >
               <br/>
               <RegistrationForm setUser={setUser} />
               
-              <button onClick={closeModal}>Close</button>
+              <button className="button-create" onClick={closeModal}>Close</button>
             </Modal>
           </>
         ) : null}
