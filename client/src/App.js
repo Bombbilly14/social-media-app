@@ -24,7 +24,7 @@ function App() {
         <Route path="/notifications" element={<Notifications/>} />
         <Route exact path="/" element={<Home/>} />
         <Route path="/signin" element={<SignInCreatePage />} />
-        <Route path="/users/:id" element={<ProfilePage />} />
+        <Route path="/users/:username" element={<ProfilePage />} />
         {/* <Route exact path="/" render={() => <Navigate replace to="/home" />} /> */}
       </Routes>
     </div>
