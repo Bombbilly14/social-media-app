@@ -11,7 +11,6 @@ const Profile = () => {
   }, []);
   
 
-
   return (
     <div>
       <ProfileCard users={users} />

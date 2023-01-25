@@ -20,6 +20,7 @@ h2 a {
 a {
 	text-decoration: none;
 	color: inherit;
+	width: 100%;
 }
 .icon-links {
 	display: grid;
@@ -87,13 +88,19 @@ button:disabled {
 }
 
 .nav-bar {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background-color: transparent;
+	height: fixed;
+	width: 140px;
+	padding-left: 10px;
+	
   }
   
   .nav-link {
 	border-right: 1px solid gray;
 	padding: 10px;
   }
+
+  

@@ -7,6 +7,7 @@ import "./styles/NavBar.css"
 function NavBar() {
 
 	return (
+		
 		<div className ="nav-bar">
 			{/* <Link to="/users">
 				<img src={favicon} alt="logo" style={{ width: "40px" }} />
@@ -34,6 +35,11 @@ function NavBar() {
 			<Link to="/users">
 				<h2>
 					<i className="fa fa-ellipsis-h" aria-hidden="true" /> <span className="title">More</span>
+				</h2>
+			</Link>
+			<Link to="/signin">
+				<h2>
+					<i className="fa fa-ellipsis-h" aria-hidden="true" /> <span className="title">Sign In/create</span>
 				</h2>
 			</Link>
 			
