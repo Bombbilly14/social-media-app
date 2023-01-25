@@ -1,6 +1,10 @@
 import './styles/ProfileCard.css';
 
 const ProfileCard = ({ user }) => {
+  if(!user){
+    return <div>Loading...</div>;
+}
+  
   return (
     <div className="card-container">
       <div className="card-header-container">
