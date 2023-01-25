@@ -40,26 +40,29 @@ function RegistrationForm({setUser}) {
     {message && <p>{message}</p>}
     <h2>Sign Up!</h2>
     <form onSubmit={createAccount}>
-        <label htmlFor="name">name</label>
+        <label htmlFor="name"></label>
         <input
         id="name"
         value={name}
-        onChange={ e => setUsername(e.target.value)}/>
+        onChange={ e => setUsername(e.target.value)}
+        placeholder="Name"/>
         <br />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
         type="password"
         id="password"
         value ={password}
         onChange={ (e) => setPassword(e.target.value)}
+        placeholder="Password"
          />
          <br />
-        <label htmlFor="confirm-password">Confirm Password:</label>
+        <label htmlFor="confirm-password"></label>
         <input
         type="password"
         id="confirm-password"
         value={confirmPassword}
         onChange={(event) => setConfirmPassword(event.target.value)}
+        placeholder="Confirm Password"
           />
           <br />
         <input type= "submit" value="create account" />
