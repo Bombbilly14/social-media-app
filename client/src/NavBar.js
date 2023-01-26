@@ -57,7 +57,7 @@
 
 import React from 'react'
 import { NavLink } from "react-router-dom"
-
+import {useHistory} from 'react'
 import { navData } from "./navData.js";
 import styles from "./styles/navbar.module.css"
 import { useState } from "react";
@@ -75,6 +75,8 @@ import CreateIcon from '@mui/icons-material/Create';
 export default function NavBar() {
 
   const [open, setopen] = useState(false)
+  
+
     const toggleOpen = () => {
         setopen(!open)
     }
@@ -92,7 +94,7 @@ export default function NavBar() {
               <span className={styles.linkText}>{item.text}</span>
           </NavLink>
           })}
-              <NavLink key={'ventbox'} className={styles.sideitem} >
+              <NavLink key={'ventbox'} className={styles.sideitem} to="/vent">
                 <CreateIcon />
                 <Ventbox style={styles.linkText} />
               </NavLink>

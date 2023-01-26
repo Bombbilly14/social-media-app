@@ -88,10 +88,10 @@
 
 import React, { useState } from "react";
 import './styles/Ventbox.css'
+import {useNavigate} from 'react-router-dom'
 
 
 function Ventbox({style}) {
-    
     
     const [popup,setPop] = useState(false);
     const [content, setContent] = useState("");
@@ -101,13 +101,16 @@ function Ventbox({style}) {
     const handleClickOpen = () => {
         setPop(!popup);
     }
+
     const closePopup = () => {
         setPop(false);
     }
+
     const handleChange = e => {
         setContent(e.target.value);
         setTextLimit(250 - e.target.value.length);
     }
+
     const handleSubmit = async e => {
         e.preventDefault();
         if (content.length > 250) {
@@ -123,6 +126,7 @@ function Ventbox({style}) {
                 });
                 const data = await response.json();
                 console.log(data);
+                
             } catch (error) {
                 console.error(error);
             }
@@ -131,7 +135,7 @@ function Ventbox({style}) {
 
     return(
         <div>
-            <span  onClick={handleClickOpen} className={style}>Vent</span>
+            <span onClick={handleClickOpen} className={style}>Vent</span>
             <div>
                 {
                     popup?
