@@ -1,4 +1,5 @@
 import './styles/ProfileCard.css';
+import { useParams } from 'react-router-dom'
 import { useState } from 'react';
 
 
@@ -6,7 +7,7 @@ const MyProfileCard = ({ user }) => {
 
     const [editing, setEditing] = useState(false);
     const [newBio, setNewBio] = useState("");
-    
+    const {username} = useParams()
     if(!user){
         return <div>Loading...</div>;
     }
@@ -18,7 +19,7 @@ const MyProfileCard = ({ user }) => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await fetch(`/users/${user.slug}`, {
+        const response = await fetch(`/users/${user.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -29,9 +30,7 @@ const MyProfileCard = ({ user }) => {
         });
         if (response.ok) {
           setEditing(false);
-          // update the user.bio value here
         } else {
-          // handle error here
         }
       } catch (error) {
         console.error(error);
