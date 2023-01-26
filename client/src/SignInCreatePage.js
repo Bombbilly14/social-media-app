@@ -62,7 +62,7 @@ function SignInCreatePage() {
               <br/>
               <RegistrationForm setUser={setUser} />
               
-              <button className="button-create" onClick={closeModal}>Close</button>
+              <button className="button-create" onClick={closeModal}>Return</button>
             </Modal>
           </>
         ) : null}
