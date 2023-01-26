@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import ProfileCard from "./ProfileCard"
+import MyProfileCard from "./MyProfileCard"
 
 const MyProfile = () => {
   const [user, setUser] = useState()
@@ -15,7 +15,7 @@ const MyProfile = () => {
   }, [])
   return (
     <div>
-      <ProfileCard user={user}/>
+      <MyProfileCard user={user}/>
     </div>
   )
 }

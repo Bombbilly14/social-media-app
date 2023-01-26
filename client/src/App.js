@@ -2,7 +2,6 @@ import './styles/App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from './Home.js';
 import About from './About.js';
-import Profile from './Profile.js';
 import NavBar from './NavBar';
 import Messages from './Messages.js'
 import Notifications from './Notifications.js'
@@ -11,6 +10,7 @@ import ProfilePage from './ProfilePage';
 import MyProfile from './MyProfile';
 import PrivateRoute from './utils/PrivateRoute.js'
 import React, {useState, useEffect} from 'react'
+import Ventbox from './Ventbox';
 
 
 
