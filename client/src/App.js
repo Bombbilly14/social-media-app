@@ -16,6 +16,7 @@ import Ventbox from './Ventbox';
 
 
 
+
 function App() {
   const [user, setUser] = useState("")
     
@@ -47,6 +48,7 @@ function App() {
         <Route path="/notifications" element={<Notifications/>} />
         <Route exact path="/" element={<Home/>} />
         <Route path="/users/:username" element={<ProfilePage />} />
+        <Route path="/vent" element={<Ventbox />} />
         </Route>
         <Route path="/signin" element={<SignInCreatePage user={user} setUser={setUser}/>} />
         {/* <Route path="/*" element={<SignInCreatePage />} /> */}
