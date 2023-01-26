@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
     def show
        user = User.find(session[:user_id])
-       render json: user
+       render json: user, serializer: UsersWithPostsSerializer
     end
 
 
@@ -21,5 +21,11 @@ class SessionsController < ApplicationController
             render json: {error: "Incorrect name or password"}
         end
 
+      end
+
+      private
+      
+      def session_params
+        params.permit(:bio)
       end
 end
