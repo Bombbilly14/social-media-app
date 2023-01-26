@@ -88,18 +88,15 @@
 
 import React, { useState } from "react";
 import './styles/Ventbox.css'
-import {useParams} from 'react-router-dom'
 
-function Ventbox() {
-    const {id} = useParams()
+
+function Ventbox({style}) {
+    
+    
     const [popup,setPop] = useState(false);
     const [content, setContent] = useState("");
     const [textLimit, setTextLimit] = useState(250);
-    // const [height, setHeight] = useState(20);
-
-    // const handleInput = (e) => {
-    //     setHeight(e.target.scrollHeight);
-    // }
+    
 
     const handleClickOpen = () => {
         setPop(!popup);
@@ -117,7 +114,7 @@ function Ventbox() {
             alert("Text limit reached");
         } else {
             try {
-                const response = await fetch(`users/${id}/posts`, {
+                const response = await fetch(`/posts`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -134,7 +131,7 @@ function Ventbox() {
 
     return(
         <div>
-            <button onClick={handleClickOpen}>Vent</button>
+            <span  onClick={handleClickOpen} className={style}>Vent</span>
             <div>
                 {
                     popup?

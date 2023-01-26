@@ -94,7 +94,7 @@ export default function NavBar() {
           })}
               <NavLink key={'ventbox'} className={styles.sideitem} >
                 <CreateIcon />
-                <Ventbox />
+                <Ventbox style={styles.linkText} />
               </NavLink>
                 {/* <Link className={styles.sideitem}href="https://www.facebook.com/" target="_blank">
               <FacebookIcon sx={{ color: "#3b5998" }}/>
