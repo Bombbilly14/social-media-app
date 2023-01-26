@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         else
             render json: {error: "Incorrect name or password"}
         end
-
+     
       end
 
       private

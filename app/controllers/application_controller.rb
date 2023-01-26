@@ -19,4 +19,8 @@ private
     render json: {error: "#{error.model} not found"}, status: :not_found
   end
 
+  def current_user
+    User.find(session[:user_id])
+  end
+
 end
