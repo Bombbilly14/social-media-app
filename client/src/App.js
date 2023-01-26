@@ -9,6 +9,7 @@ import Notifications from './Notifications.js'
 import SignInCreatePage from './SignInCreatePage.js';
 import ProfilePage from './ProfilePage';
 import MyProfile from './MyProfile';
+import Ventbox from './Ventbox';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route path="/signin" element={<SignInCreatePage />} />
         <Route path="/users/:username" element={<ProfilePage />} />
+        <Route path="/vent" element={<Ventbox />} />
         {/* <Route path="/*" element={<SignInCreatePage />} /> */}
         {/* <Route exact path="/" render={() => <Navigate replace to="/home" />} /> */}
       </Routes>
