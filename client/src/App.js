@@ -10,6 +10,7 @@ import SignInCreatePage from './SignInCreatePage.js';
 import ProfilePage from './ProfilePage';
 import MyProfile from './MyProfile';
 import Ventbox from './Ventbox';
+import {useState} from 'react';
 
 
 
@@ -17,7 +18,7 @@ import Ventbox from './Ventbox';
 
 function App() {
 
- 
+  const [showPopup, setShowPopup] = useState(false)
 
   return (
     <>

@@ -88,10 +88,12 @@
 
 import React, { useState } from "react";
 import './styles/Ventbox.css'
+import {useParams} from 'react-router-dom'
 
 function Ventbox() {
+    const {id} = useParams()
     const [popup,setPop] = useState(false);
-    const [text, setText] = useState("");
+    const [content, setContent] = useState("");
     const [textLimit, setTextLimit] = useState(250);
     // const [height, setHeight] = useState(20);
 
@@ -106,21 +108,21 @@ function Ventbox() {
         setPop(false);
     }
     const handleChange = e => {
-        setText(e.target.value);
+        setContent(e.target.value);
         setTextLimit(250 - e.target.value.length);
     }
     const handleSubmit = async e => {
         e.preventDefault();
-        if (text.length > 250) {
+        if (content.length > 250) {
             alert("Text limit reached");
         } else {
             try {
-                const response = await fetch('/posts', {
+                const response = await fetch(`users/${id}/posts`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ text })
+                    body: JSON.stringify({ content: content })
                 });
                 const data = await response.json();
                 console.log(data);
@@ -132,7 +134,7 @@ function Ventbox() {
 
     return(
         <div>
-            <button onClick={handleClickOpen}>Open popup</button>
+            <button onClick={handleClickOpen}>Vent</button>
             <div>
                 {
                     popup?
@@ -145,7 +147,7 @@ function Ventbox() {
                             <div>
                                 <form onSubmit={handleSubmit}>
                                     <input className="textbox" placeholder="Enter text here" 
-                                        value={text} 
+                                        value={content} 
                                         onChange={handleChange} 
                                         maxLength={250} 
                                     />

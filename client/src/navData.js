@@ -12,22 +12,9 @@ import Ventbox from './Ventbox'
 import Popup from 'reactjs-popup'
 import {useState} from 'react'
 
-const Vent = () => {
-    const [showPopup, setShowPopup] = useState(false)
-    return (
-      <div>
-        <Popup 
-            open={showPopup} 
-            trigger={<button onClick={() => setShowPopup(true)}>Vent</button>}
-            onClose={() => setShowPopup(false)}
-            >
-  <Ventbox />
-</Popup>
-      </div>
-    );
-  };
 
 export const navData = [
+    
     {
         id: 0,
         icon: <HomeIcon/>,
@@ -61,10 +48,11 @@ export const navData = [
     },
 
     {
+       
         id: 6,
         icon: <CreateIcon/>,
         text: "Vent",
-        component: Vent,
-        link: "/vent"
+        link: "/vent",
+       
     }
 ]

@@ -68,6 +68,9 @@ import { Link } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Ventbox from './Ventbox'
+import Popup from 'reactjs-popup'
+import CreateIcon from '@mui/icons-material/Create';
 
 export default function NavBar() {
 
@@ -75,8 +78,10 @@ export default function NavBar() {
     const toggleOpen = () => {
         setopen(!open)
     }
+  
 
     return (
+      
       <div className={open?styles.sidenav:styles.sidenavClosed}>
           <button className={styles.menuBtn} onClick={toggleOpen}>
               {open? <KeyboardDoubleArrowLeftIcon />: <KeyboardDoubleArrowRightIcon />}
@@ -87,7 +92,11 @@ export default function NavBar() {
               <span className={styles.linkText}>{item.text}</span>
           </NavLink>
           })}
-            {/* <Link className={styles.sideitem}href="https://www.facebook.com/" target="_blank">
+              <NavLink key={'ventbox'} className={styles.sideitem} >
+                <CreateIcon />
+                <Ventbox />
+              </NavLink>
+                {/* <Link className={styles.sideitem}href="https://www.facebook.com/" target="_blank">
               <FacebookIcon sx={{ color: "#3b5998" }}/>
             </Link>
             <Link className={styles.sideitem}href="https://www.youtube.com/watch?v=Whm94pH53yE" target="_blank">
