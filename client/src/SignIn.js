@@ -1,10 +1,12 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import RegistrationForm from './RegistrationForm'
+import { useNavigate } from "react-router-dom";
 
 function SignIn({setUser}) {
     const [name, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const login = (e) => {
         e.preventDefault()
@@ -19,6 +21,8 @@ function SignIn({setUser}) {
     .then((data) => {
       if (!data.error) {
       setUser(data)
+      // localStorage.setItem('user','test')
+      navigate("/profile")
       }
     })
     }
