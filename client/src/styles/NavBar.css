@@ -57,13 +57,13 @@ a {
 	border-radius: 25px;
 }
 
-.nav-bar button {
+/* .nav-bar button {
 	background-color: #55abee;
 	border: 0;
 	color: #fff;
 
 	font-weight: bold;
-}
+/* } */ */
 .nav-bar button:focus {
 	outline: none;
 }

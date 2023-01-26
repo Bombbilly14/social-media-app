@@ -7,6 +7,25 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
 import SendIcon from '@mui/icons-material/Send';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import CreateIcon from '@mui/icons-material/Create';
+import Ventbox from './Ventbox'
+import Popup from 'reactjs-popup'
+import {useState} from 'react'
+
+const Vent = () => {
+    const [showPopup, setShowPopup] = useState(false)
+    return (
+      <div>
+        <Popup 
+            open={showPopup} 
+            trigger={<button onClick={() => setShowPopup(true)}>Vent</button>}
+            onClose={() => setShowPopup(false)}
+            >
+  <Ventbox />
+</Popup>
+      </div>
+    );
+  };
 
 export const navData = [
     {
@@ -41,10 +60,11 @@ export const navData = [
         link: "/signin"
     },
 
-    // {
-    //     id: 6,
-    //     icon: <VerifiedUserIcon/>,
-    //     text: "login",
-    //     link: "/login"
-    // }
+    {
+        id: 6,
+        icon: <CreateIcon/>,
+        text: "Vent",
+        component: Vent,
+        link: "/vent"
+    }
 ]
