@@ -7,24 +7,24 @@ import "./styles/Form.css"
 import shareVideo from "./styles/share.mp4"
 Modal.setAppElement('#root')
 
-function SignInCreatePage() {
+function SignInCreatePage({user, setUser}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
-  const [user, setUser] = useState()
+  // const [user, setUser] = useState()
     
 
-    useEffect(()=> {
-      fetch('/me')
-      .then(r => r.json())
-      .then(data => {
-        if(data.error) {
-          setUser(null)
-        } else {
-        setUser(data)
-        }
-      } )
-    }, [])
+  //   useEffect(()=> {
+  //     fetch('/me')
+  //     .then(r => r.json())
+  //     .then(data => {
+  //       if(data.error) {
+  //         setUser(null)
+  //       } else {
+  //       setUser(data)
+  //       }
+  //     } )
+  //   }, [])
 
     const logout = () => {
       fetch('/logout', {
