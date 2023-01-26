@@ -4,6 +4,7 @@ import RegistrationForm from './RegistrationForm'
 import SignIn from "./SignIn.js"
 import Modal from 'react-modal';
 import "./styles/Form.css"
+import shareVideo from "./styles/share.mp4"
 Modal.setAppElement('#root')
 
 function SignInCreatePage() {
@@ -39,7 +40,17 @@ function SignInCreatePage() {
     }
 
     return (
-      <div className="modalParent">
+      <div>
+         <div>
+         <video
+            className='share-video'
+            src={shareVideo}
+            loop
+            muted
+            autoPlay
+          />
+        <div className="modalParent">
+        
         {user ? <button onClick={logout}>Logout</button> : null}
         <h1>Welcome {user ? ` ${user.name}` : null}</h1>
         {user === null ? (
@@ -51,10 +62,12 @@ function SignInCreatePage() {
               <br/>
               <RegistrationForm setUser={setUser} />
               
-              <button className="button-create" onClick={closeModal}>Close</button>
+              <button className="button-create" onClick={closeModal}>Return</button>
             </Modal>
           </>
         ) : null}
+          </div>
+        </div>
       </div>
     );
 }
