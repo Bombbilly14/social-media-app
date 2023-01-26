@@ -3,7 +3,7 @@ import ProfileCard from "./ProfileCard"
 
 const MyProfile = () => {
   const [user, setUser] = useState()
-    
+
 
   useEffect(()=> {
     fetch('/me')
