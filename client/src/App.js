@@ -11,7 +11,7 @@ import MyProfile from './MyProfile';
 import PrivateRoute from './utils/PrivateRoute.js'
 import React, {useState, useEffect} from 'react'
 import Ventbox from './Ventbox';
-import {useState} from 'react';
+
 
 
 
@@ -48,6 +48,7 @@ function App() {
         <Route path="/notifications" element={<Notifications/>} />
         <Route exact path="/" element={<Home/>} />
         <Route path="/users/:username" element={<ProfilePage />} />
+        <Route path="/vent" element={<Ventbox />} />
         </Route>
         <Route path="/signin" element={<SignInCreatePage user={user} setUser={setUser}/>} />
         {/* <Route path="/*" element={<SignInCreatePage />} /> */}
