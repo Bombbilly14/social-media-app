@@ -28,13 +28,6 @@ const Home = () => {
     />
 })
 
-
-
-
-
-
-
-console.log(mappedPosts)
   return (
     <div>Dashboard
       {mappedPosts}
