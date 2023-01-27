@@ -73,7 +73,6 @@ const MyProfileCard = ({ user }) => {
       console.error(error);
     }
   }
-
   return (
     <div className="card-container">
       <div className="card-header-container">

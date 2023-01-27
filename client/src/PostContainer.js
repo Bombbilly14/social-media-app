@@ -14,7 +14,6 @@ const PostContainer = (post) => {
           borderRadius: '100%'
         }
     };
-   
     return (
         <div className="card post">
             <div className="post-header">
