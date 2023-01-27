@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 const LikeButton = () => {
-  const [likes, setLikes] = useState([0]);
+  const [likes, setLikes] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
 //   useEffect(() => {
@@ -28,7 +28,7 @@ const LikeButton = () => {
   };
 
   return (
-    <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
+    <button className={ `like-button ${isClicked && 'liked'} button-react`  }  onClick={ handleClick }>
       <span className="likes-counter">{ `React | ${likes}` }</span>
     </button>
   );

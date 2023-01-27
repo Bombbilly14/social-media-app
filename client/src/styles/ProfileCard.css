@@ -209,7 +209,7 @@ button {
   color: #999;
 }
 
-button {
+.button-react {
   padding: 5px 10px;
   border-radius: 5px;
   background-color: #713e8f;
@@ -221,6 +221,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.button-react:hover {
   background-color: #9951b2;
 }
