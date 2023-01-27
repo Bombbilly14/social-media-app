@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
     def create
         post = logged_in_user.posts.create!(post_params)
         render json: post, status: :created
@@ -36,4 +35,6 @@ class PostsController < ApplicationController
     def post_params
         params.permit(:content, :user_id)
     end
+
+    
 end

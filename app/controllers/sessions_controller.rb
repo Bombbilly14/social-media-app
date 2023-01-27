@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
       private
       
       def session_params
-        params.permit(:bio)
+        params.permit(:bio, :post)
       end
 end

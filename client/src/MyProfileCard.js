@@ -16,7 +16,6 @@ const MyProfileCard = ({ user }) => {
   }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     try {
       const response = await fetch(`/users/${user.id}`, {
         method: 'PATCH',
@@ -37,7 +36,7 @@ const MyProfileCard = ({ user }) => {
   }
 
   const handlePostEdit = (post) => {
-    setEditingPost(post);
+    setEditingPost({...post});
   }
 
   const handlePostSave = async (post) => {
@@ -95,7 +94,7 @@ const MyProfileCard = ({ user }) => {
           <div key={post.id} className="card-post">
             {editingPost && editingPost.id === post.id ? (
               <>
-                <input type="text" value={post.content} onChange={(event) => post.content = event.target.value}/>
+                <input type="text" value={editingPost.content} onChange={(event) => setEditingPost({...editingPost, content: event.target.value})}/>
                 <button onClick={() => handlePostSave(post)}>Save</button>
                 <button onClick={() => setEditingPost(null)}>Cancel</button>
               </>
