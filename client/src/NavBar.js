@@ -94,8 +94,8 @@ export default function NavBar() {
               <span className={styles.linkText}>{item.text}</span>
           </NavLink>
           })}
-              <CreateIcon onClick={handleOpen} className={styles.sideitem}/>
-              <Ventbox style={styles.linkText} />
+              {/* <CreateIcon onClick={handleOpen} className={styles.sideitem}/> */}
+              <Ventbox style={styles.sideitem} handleClose={handleClose}/>
 <Modal
   open={modal}
   onClose={handleClose}

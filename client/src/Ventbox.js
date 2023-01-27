@@ -88,11 +88,15 @@
 
 import React, { useState } from "react";
 import './styles/Ventbox.css'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import CreateIcon from '@mui/icons-material/Create';
 
 
-function Ventbox({style}) {
+function Ventbox({style, handleClose, linkText}) {
+
+    const navigate = useNavigate()
+
     
     const [popup,setPop] = useState(false);
     const [content, setContent] = useState("");
@@ -127,7 +131,8 @@ function Ventbox({style}) {
                 });
                 const data = await response.json();
                 console.log(data);
-                
+                handleClose()
+                navigate('/home')
             } catch (error) {
                 console.error(error);
             }
@@ -137,7 +142,7 @@ function Ventbox({style}) {
     return(
         <div>
             <Link to="/vent">
-            <span onClick={handleClickOpen} className={style}>Vent</span>
+            <span onClick={handleClickOpen} className={style}><CreateIcon/>Vent</span>
             </Link>
             <div>
                 {
