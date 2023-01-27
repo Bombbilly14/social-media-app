@@ -95,14 +95,14 @@ export default function NavBar() {
           </NavLink>
           })}
               {/* <CreateIcon onClick={handleOpen} className={styles.sideitem}/> */}
-              <Ventbox style={styles.sideitem} handleClose={handleClose}/>
-<Modal
-  open={modal}
-  onClose={handleClose}
+              <Ventbox style={styles.sideitem} />
+{/* <Modal
+  open={handleOpen}
+  onRequestClose={handleClose}
   aria-labelledby="modal-modal-title"
   aria-describedby="modal-modal-description"
 >
-</Modal>
+</Modal> */}
               {/* <NavLink key={'ventbox'} className={styles.sideitem} to="/vent"> */}
               {/* </NavLink> */}
       </div>

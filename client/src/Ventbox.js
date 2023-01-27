@@ -93,7 +93,7 @@ import { Link } from 'react-router-dom'
 import CreateIcon from '@mui/icons-material/Create';
 
 
-function Ventbox({style, handleClose, linkText}) {
+function Ventbox({style, linkText}) {
 
     const navigate = useNavigate()
 
@@ -103,14 +103,20 @@ function Ventbox({style, handleClose, linkText}) {
     const [textLimit, setTextLimit] = useState(250);
     
 
+    
     const handleClickOpen = () => {
         setPop(!popup);
     }
-
+    
     const closePopup = () => {
         setPop(false);
     }
 
+    const handlePost = () => {
+        navigate('/')
+        closePopup()
+    }
+    
     const handleChange = e => {
         setContent(e.target.value);
         setTextLimit(250 - e.target.value.length);
@@ -131,8 +137,7 @@ function Ventbox({style, handleClose, linkText}) {
                 });
                 const data = await response.json();
                 console.log(data);
-                handleClose()
-                navigate('/home')
+              
             } catch (error) {
                 console.error(error);
             }
@@ -154,14 +159,14 @@ function Ventbox({style, handleClose, linkText}) {
                                 <button className="delete-button" onClick={closePopup}>X</button>
                             </div>
                             <div>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} >
                                     <input className="textbox" placeholder="Enter text here" 
                                         value={content} 
                                         onChange={handleChange} 
                                         maxLength={250} 
                                     />
                                     <p>Characters remaining: {textLimit}</p>
-                                    <button className="post-button"type="submit">Post</button>
+                                    <button onClick={handlePost} className="post-button" type="submit">Post</button>
                                 </form>
                             </div>
                         </div>
