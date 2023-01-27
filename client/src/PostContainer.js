@@ -8,8 +8,8 @@ const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
 
 
-    const FormattedTime = ({ time_posted }) => {
-        const formattedTime = moment.utc(time_posted).local().format("MMMM Do YYYY, h:mmA");
+    const FormattedTime = ({ created_at }) => {
+        const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
         return <p>{formattedTime}</p>;
       };
       
@@ -31,7 +31,8 @@ const PostContainer = (post) => {
             </div>
             <div className="post-body">
                 <p className="post-content">{post.content}</p>
-                <FormattedTime time_posted={post.time_posted} />
+               
+                <FormattedTime created_at={post.created_at} />
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />
