@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 import LikeButton from "./LikeButton";
 import ProfilePage from "./ProfilePage";
 
 const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
 
+
+    const FormattedTime = ({ time_posted }) => {
+        const formattedTime = moment.utc(time_posted).local().format("MMMM Do YYYY, h:mmA");
+        return <p>{formattedTime}</p>;
+      };
+      
     const styles = {
         postAvatar: {
           height: '50px',
@@ -24,6 +31,7 @@ const PostContainer = (post) => {
             </div>
             <div className="post-body">
                 <p className="post-content">{post.content}</p>
+                <FormattedTime time_posted={post.time_posted} />
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />

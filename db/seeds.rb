@@ -18,7 +18,8 @@ require 'faker'
     10.times do
         user = User.create!(name: Faker::Name.name, avatar: Faker::Avatar.image, bio: Faker::Lorem.paragraph, password: Faker::Internet.password, email: Faker::Internet.email, slug: Faker::Internet.slug)
         8.times do
-        post = Post.create!(user_id: User.all.sample.id, likes: Faker::Number.between(from: 0, to: 1000), content: Faker::Lorem.sentence)
+            post = Post.create!(user_id: User.all.sample.id, likes: Faker::Number.between(from: 0, to: 1000), content: Faker::Lorem.sentence, time_posted: Faker::Time.between(from: 20.days.ago, to: Time.now))
+
         5.times do
         Comment.create!(content: Faker::Lorem.sentence, likes: Faker::Number.between(from: 0, to: 1000), post_id: post.id, user_id: User.all.sample.id)
         end

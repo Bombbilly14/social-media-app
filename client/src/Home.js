@@ -25,6 +25,7 @@ const Home = () => {
     comments={post.comments.map(comment => comment)}
     avatar={post.user.avatar}
     slug={post.user.slug}
+    time_posted={post.time_posted}
     />
 })
 
