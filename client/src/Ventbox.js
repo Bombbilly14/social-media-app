@@ -111,11 +111,6 @@ function Ventbox({style, linkText}) {
     const closePopup = () => {
         setPop(false);
     }
-
-    const handlePost = () => {
-        navigate('/')
-        closePopup()
-    }
     
     const handleChange = e => {
         setContent(e.target.value);
@@ -137,17 +132,19 @@ function Ventbox({style, linkText}) {
                 });
                 const data = await response.json();
                 console.log(data);
-              
+              navigate('/')
+              closePopup()
             } catch (error) {
                 console.error(error);
             }
         }
     }
 
+
     return(
         <div>
             <Link to="/vent">
-            <span onClick={handleClickOpen} className={style}><CreateIcon/>Vent</span>
+            <span onClick={handleClickOpen} className={style}><CreateIcon/></span>
             </Link>
             <div>
                 {
@@ -159,14 +156,14 @@ function Ventbox({style, linkText}) {
                                 <button className="delete-button" onClick={closePopup}>X</button>
                             </div>
                             <div>
-                                <form onSubmit={handleSubmit} >
+                                <form onSubmit={handleSubmit}>
                                     <input className="textbox" placeholder="Enter text here" 
                                         value={content} 
                                         onChange={handleChange} 
                                         maxLength={250} 
                                     />
                                     <p>Characters remaining: {textLimit}</p>
-                                    <button onClick={handlePost} className="post-button" type="submit">Post</button>
+                                    <input className="post-button" type="submit"/>
                                 </form>
                             </div>
                         </div>
