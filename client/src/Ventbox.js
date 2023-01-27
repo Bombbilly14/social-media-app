@@ -110,6 +110,7 @@ function Ventbox({style, linkText}) {
     
     const closePopup = () => {
         setPop(false);
+        navigate('/')
     }
     
     const handleChange = e => {
@@ -174,3 +175,44 @@ function Ventbox({style, linkText}) {
     )
 }
 export default Ventbox;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
