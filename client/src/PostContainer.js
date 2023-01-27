@@ -36,7 +36,7 @@ const PostContainer = (post) => {
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />
-                <button className="see-thread-button" onClick={() => setShowComments(!showComments)}>
+                <button className="see-thread-button button-react"  onClick={() => setShowComments(!showComments)}>
                     {showComments ? 'Hide Thread' : 'See Thread'}
                 </button>
                 {showComments && (
@@ -44,7 +44,7 @@ const PostContainer = (post) => {
                         {post.comments.map((comment, index) => (
                             <div key={index} className="post-comment">
                                 <p>{comment.content}</p>
-                                <p>- {comment.user_id}</p>
+                                <p>- {comment.name}</p>
                             </div>
                         ))}
                     </div>
