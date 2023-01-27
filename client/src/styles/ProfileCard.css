@@ -212,7 +212,7 @@ button {
 button {
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: #4267B2;
+  background-color: #713e8f;
   color: #fff;
   font-size: 0.8em;
   font-weight: bold;
@@ -222,5 +222,5 @@ button {
 }
 
 button:hover {
-  background-color: #3b5998;
+  background-color: #9951b2;
 }
