@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def create
-        post = current_user.posts.create!(post_params)
+        post = logged_in_user.posts.create!(post_params)
         render json: post, status: :created
     end
 

@@ -31,7 +31,7 @@ return (
                 {post.comments.map((comment, index) => (
                     <div key={index} className="post-comment">
                         <p>{comment.content}</p>
-                        <p>- {comment.user_id}</p>
+                        <p>- {comment.name}</p>
                     </div>
                 ))}
             </div>
