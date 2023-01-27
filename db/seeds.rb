@@ -10,9 +10,9 @@ require 'faker'
     puts "🌱 Seeding data..."
     
 
-    u1=User.create(name: "Jason T", bio: "Bio for Jason", email: "ex1@ex1.com", password: "password", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u2=User.create(name: "William G", bio: "Bio for William", email: "ex2@ex2.com", password: "password", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
-    u3=User.create(name: "Ryan S", bio: "Bio for Ryan", email: "ex3@ex3.com", password: "password", avatar: 'https://cdn.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.webp')
+    u1=User.create(name: "Jason T", bio: "Bio for Jason", email: "ex1@ex1.com", password: "password", avatar: Faker::Avatar.image)
+    u2=User.create(name: "William G", bio: "Bio for William", email: "ex2@ex2.com", password: "password", avatar: Faker::Avatar.image)
+    u3=User.create(name: "Ryan S", bio: "Bio for Ryan", email: "ex3@ex3.com", password: "password", avatar: Faker::Avatar.image)
 
 
     10.times do
