@@ -89,6 +89,7 @@
 import React, { useState } from "react";
 import './styles/Ventbox.css'
 import {useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function Ventbox({style}) {
@@ -135,7 +136,9 @@ function Ventbox({style}) {
 
     return(
         <div>
+            <Link to="/vent">
             <span onClick={handleClickOpen} className={style}>Vent</span>
+            </Link>
             <div>
                 {
                     popup?
