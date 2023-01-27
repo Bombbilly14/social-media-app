@@ -2,7 +2,7 @@
     .button-create {
       padding: 10px 30px;
       border-radius: 15px;
-      background-color: #4CAF50;
+      background-color: #a401f0;
       color: white;
       font-size: 16px;
       /* margin-top: 20px; */
@@ -12,7 +12,7 @@
     .button-create:hover {
       padding: 10px 30px;
       border-radius: 15px;
-      background-color: #84e788;
+      background-color: #7f00f7;
       color: white;
       font-size: 16px;
       /* margin-top: 20px; */
