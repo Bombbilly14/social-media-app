@@ -64,11 +64,18 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import Ventbox from './Ventbox'
 import CreateIcon from '@mui/icons-material/Create';
+import Modal from 'react-modal';
+
 
 export default function NavBar() {
 
   const [open, setopen] = useState(false)
+
+  const [modal, setmodal] = useState(false)
   
+  const handleOpen = () => setmodal(!open);
+
+  const handleClose = () => setmodal(false);
 
     const toggleOpen = () => {
         setopen(!open)
@@ -87,10 +94,17 @@ export default function NavBar() {
               <span className={styles.linkText}>{item.text}</span>
           </NavLink>
           })}
-              <NavLink key={'ventbox'} className={styles.sideitem} to="/vent">
-                <CreateIcon />
-                <Ventbox to="/vent" style={styles.linkText} />
-              </NavLink>
+              {/* <CreateIcon onClick={handleOpen} className={styles.sideitem}/> */}
+              <Ventbox style={styles.sideitem} />
+{/* <Modal
+  open={handleOpen}
+  onRequestClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+</Modal> */}
+              {/* <NavLink key={'ventbox'} className={styles.sideitem} to="/vent"> */}
+              {/* </NavLink> */}
       </div>
     )
   }

@@ -88,24 +88,35 @@
 
 import React, { useState } from "react";
 import './styles/Ventbox.css'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import CreateIcon from '@mui/icons-material/Create';
 
 
-function Ventbox({style}) {
+function Ventbox({style, linkText}) {
+
+    const navigate = useNavigate()
+
     
     const [popup,setPop] = useState(false);
     const [content, setContent] = useState("");
     const [textLimit, setTextLimit] = useState(250);
     
 
+    
     const handleClickOpen = () => {
         setPop(!popup);
     }
-
+    
     const closePopup = () => {
         setPop(false);
     }
 
+    const handlePost = () => {
+        navigate('/')
+        closePopup()
+    }
+    
     const handleChange = e => {
         setContent(e.target.value);
         setTextLimit(250 - e.target.value.length);
@@ -126,7 +137,7 @@ function Ventbox({style}) {
                 });
                 const data = await response.json();
                 console.log(data);
-                
+              
             } catch (error) {
                 console.error(error);
             }
@@ -135,7 +146,9 @@ function Ventbox({style}) {
 
     return(
         <div>
-            <span onClick={handleClickOpen} className={style}>Vent</span>
+            <Link to="/vent">
+            <span onClick={handleClickOpen} className={style}><CreateIcon/>Vent</span>
+            </Link>
             <div>
                 {
                     popup?
@@ -146,14 +159,14 @@ function Ventbox({style}) {
                                 <button className="delete-button" onClick={closePopup}>X</button>
                             </div>
                             <div>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} >
                                     <input className="textbox" placeholder="Enter text here" 
                                         value={content} 
                                         onChange={handleChange} 
                                         maxLength={250} 
                                     />
                                     <p>Characters remaining: {textLimit}</p>
-                                    <button className="post-button"type="submit">Post</button>
+                                    <button onClick={handlePost} className="post-button" type="submit">Post</button>
                                 </form>
                             </div>
                         </div>
