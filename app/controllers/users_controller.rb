@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = find_user
+        user = User.find(params[:id])
         render json: user, serializer: UsersWithPostsSerializer
     end
 
