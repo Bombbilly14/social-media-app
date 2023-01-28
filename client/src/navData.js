@@ -46,4 +46,12 @@ export const navData = [
         text: "Signup/Login",
         link: "/signin"
     },
+
+    // {
+    //     id: 6,
+    //     icon: <CreateIcon/>,
+    //     text: "VentBox",
+    //     component: "Ventbox",
+    //     link: "/vent"
+    // }
 ]

@@ -73,9 +73,9 @@ export default function NavBar() {
 
   const [modal, setmodal] = useState(false)
   
-  const handleOpen = () => setmodal(!open);
+  // const handleOpen = () => setmodal(!open);
 
-  const handleClose = () => setmodal(false);
+  // const handleClose = () => setmodal(false);
 
     const toggleOpen = () => {
         setopen(!open)
