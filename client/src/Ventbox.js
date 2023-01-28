@@ -61,7 +61,7 @@ function Ventbox({style, linkText}) {
 
     return(
         <div>
-            <NavLink to="/vent" className={styles.linkText} style={{ textDecoration: 'none' }}>
+            <NavLink to="/vent" style={{ textDecoration: 'none' }}>
             <span onClick={handleClickOpen} className={styles.sideitem}>
                 <CreateIcon/> 
             <span className={styles.linkText}>VentBox</span>
