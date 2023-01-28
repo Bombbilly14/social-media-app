@@ -63,19 +63,22 @@ const handleSubmit = async (event) => {
     }
   }
 
-  const handlePostDelete = async (post) => {
-    try {
-      const response = await fetch(`/users/${user.id}/posts/${post.id}`, {
-        method: 'DELETE',
-      });
+  const handlePostDelete = (post) => {
+    fetch(`/users/${user.id}/posts/${post.id}`, {
+    method: 'DELETE',
+    })
+    .then(response => {
       if (response.ok) {
-        setEditingPost(null);
-      } else {
-      }
-    } catch (error) {
-      console.error(error);
+        setEditingPost(null)
+        setUser(prevUser => {
+          return {...prevUser, posts: prevUser.posts.filter(p => p.id !== post.id)}
+        });
     }
-  }
+    })
+    .catch(error => {
+    console.error(error);
+    });
+    }
   return (
     <div className="card-container">
       <div className="card-header-container">

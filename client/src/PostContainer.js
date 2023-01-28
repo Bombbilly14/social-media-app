@@ -7,19 +7,35 @@ import ProfilePage from "./ProfilePage";
 const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState("");
-    const [loggedInUser, setLoggedInUser] = useState("user"); // Add this line to set the logged in user's name
 
     const FormattedTime = ({ created_at }) => {
         const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
         return <p>{formattedTime}</p>;
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        post.comments.push({ name: loggedInUser, content: newComment });
-        setNewComment("");
-    };
 
+    const handleChange = e => {
+        setNewComment(e.target.value);
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`/posts`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: newComment })
+            });
+            const data = await response.json();
+            setNewComment([...newComment, data]);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+    
     return (
         <div className="card post">
             <div className="post-header">
@@ -51,7 +67,7 @@ const PostContainer = (post) => {
                                 type="text"
                                 placeholder="Add a comment..."
                                 value={newComment}
-                                onChange={(event) => setNewComment(event.target.value)}
+                                onChange={handleChange} 
                             />
                             <button type="submit">Post</button>
                         </form>
