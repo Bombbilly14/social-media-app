@@ -15,7 +15,9 @@ const MyProfileCard = ({ user }) => {
     setEditing(!editing);
   }
 
-  const handleSubmit = async (event) => {
+
+const handleSubmit = async (event) => {
+
     event.preventDefault();
     try {
       const response = await fetch(`/users/${user.id}`, {
@@ -35,6 +37,7 @@ const MyProfileCard = ({ user }) => {
       console.error(error);
     }
   }
+
 
   const handlePostEdit = (post) => {
     setEditingPost({...post});
@@ -96,7 +99,7 @@ const MyProfileCard = ({ user }) => {
             {editingPost && editingPost.id === post.id ? (
               <>
                 <input type="text" value={editingPost.content} onChange={(event) => setEditingPost({...editingPost, content: event.target.value})}/>
-                <button onClick={() => handlePostSave(post)}>Save</button>
+                <button onClick={() => handlePostSave(editingPost)}>Save</button>
                 <button onClick={() => setEditingPost(null)}>Cancel</button>
               </>
             ) : (
