@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const MyProfileCard = ({ user, setUser }) => {
   const [editing, setEditing] = useState(false);
-  const [newBio, setNewBio] = useState("");
+  const [newBio, setNewBio] = useState(null);
   const [editingPost, setEditingPost] = useState(null);
   const {username} = useParams()
   if(!user){
@@ -55,6 +55,7 @@ const handleSubmit = async (event) => {
       });
       if (response.ok) {
         setEditingPost(null);
+        setUser({...user, posts: user.posts.map(p => p.id === post.id ? post : p)})
       } else {
       }
     } catch (error) {
