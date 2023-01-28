@@ -2,7 +2,7 @@ import './styles/ProfileCard.css';
 import { useParams } from 'react-router-dom'
 import { useState } from 'react';
 
-const MyProfileCard = ({ user }) => {
+const MyProfileCard = ({ user, setUser }) => {
   const [editing, setEditing] = useState(false);
   const [newBio, setNewBio] = useState("");
   const [editingPost, setEditingPost] = useState(null);
@@ -29,6 +29,7 @@ const handleSubmit = async (event) => {
       });
       if (response.ok) {
         setEditing(false);
+        setUser({...user, bio: newBio})
       } else {
       }
     } catch (error) {
