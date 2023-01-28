@@ -2,9 +2,9 @@ import './styles/ProfileCard.css';
 import { useParams } from 'react-router-dom'
 import { useState } from 'react';
 
-const MyProfileCard = ({ user }) => {
+const MyProfileCard = ({ user, setUser }) => {
   const [editing, setEditing] = useState(false);
-  const [newBio, setNewBio] = useState("");
+  const [newBio, setNewBio] = useState(null);
   const [editingPost, setEditingPost] = useState(null);
   const {username} = useParams()
   if(!user){
@@ -31,6 +31,7 @@ const handleSubmit = async (event) => {
       });
       if (response.ok) {
         setEditing(false);
+        setUser({...user, bio: newBio})
       } else {
       }
     } catch (error) {
@@ -56,6 +57,7 @@ const handleSubmit = async (event) => {
       });
       if (response.ok) {
         setEditingPost(null);
+        setUser({...user, posts: user.posts.map(p => p.id === post.id ? post : p)})
       } else {
       }
     } catch (error) {
@@ -63,19 +65,22 @@ const handleSubmit = async (event) => {
     }
   }
 
-  const handlePostDelete = async (post) => {
-    try {
-      const response = await fetch(`/users/${user.id}/posts/${post.id}`, {
-        method: 'DELETE',
-      });
+  const handlePostDelete = (post) => {
+    fetch(`/users/${user.id}/posts/${post.id}`, {
+    method: 'DELETE',
+    })
+    .then(response => {
       if (response.ok) {
-        setEditingPost(null);
-      } else {
-      }
-    } catch (error) {
-      console.error(error);
+        setEditingPost(null)
+        setUser(prevUser => {
+          return {...prevUser, posts: prevUser.posts.filter(p => p.id !== post.id)}
+        });
     }
-  }
+    })
+    .catch(error => {
+    console.error(error);
+    });
+    }
   return (
     <div className="card-container">
       <div className="card-header-container">

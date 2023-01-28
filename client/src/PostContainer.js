@@ -6,21 +6,36 @@ import ProfilePage from "./ProfilePage";
 
 const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
-
+    const [newComment, setNewComment] = useState("");
 
     const FormattedTime = ({ created_at }) => {
         const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
         return <p>{formattedTime}</p>;
-      };
-      
-    const styles = {
-        postAvatar: {
-          height: '50px',
-          width: '50px',
-          border: '1px solid rgba(0,0,0,0.1)',
-          borderRadius: '100%'
-        }
     };
+
+
+    const handleChange = e => {
+        setNewComment(e.target.value);
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`/posts`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: newComment })
+            });
+            const data = await response.json();
+            setNewComment([...newComment, data]);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+    
     return (
         <div className="card post">
             <div className="post-header">
@@ -31,12 +46,12 @@ const PostContainer = (post) => {
             </div>
             <div className="post-body">
                 <p className="post-content">{post.content}</p>
-               
+
                 <FormattedTime created_at={post.created_at} />
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />
-                <button className="see-thread-button button-react"  onClick={() => setShowComments(!showComments)}>
+                <button className="see-thread-button button-react" onClick={() => setShowComments(!showComments)}>
                     {showComments ? 'Hide Thread' : 'See Thread'}
                 </button>
                 {showComments && (
@@ -47,11 +62,20 @@ const PostContainer = (post) => {
                                 <p>- {comment.name}</p>
                             </div>
                         ))}
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                placeholder="Add a comment..."
+                                value={newComment}
+                                onChange={handleChange} 
+                            />
+                            <button type="submit">Post</button>
+                        </form>
                     </div>
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PostContainer
+export default PostContainer;
