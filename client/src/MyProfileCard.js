@@ -16,6 +16,7 @@ const MyProfileCard = ({ user }) => {
   }
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const response = await fetch(`/users/${user.id}`, {
         method: 'PATCH',
