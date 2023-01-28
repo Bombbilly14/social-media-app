@@ -15,7 +15,9 @@ const MyProfileCard = ({ user }) => {
     setEditing(!editing);
   }
 
+
 const handleSubmit = async (event) => {
+
     event.preventDefault();
     try {
       const response = await fetch(`/users/${user.id}`, {
