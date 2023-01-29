@@ -45,6 +45,7 @@ function Ventbox() {
                 const data = await response.json();
                 console.log(data);
               navigate('/')
+              setContent('')
               closePopup()
             } catch (error) {
                 console.error(error);

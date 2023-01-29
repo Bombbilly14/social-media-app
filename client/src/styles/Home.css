@@ -6,3 +6,8 @@
 .whole-dashboard {
     background-image: linear-gradient(to bottom right, #4568dc, #b06ab3);
 }
+
+.welcome {
+    font-size: 1.8em;
+    font-weight: bold;
+}
