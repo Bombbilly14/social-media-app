@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom'
 import ProfileCard from './ProfileCard'
+import './styles/ProfilePage.css'
 
 const ProfilePage = () => {
   
@@ -17,7 +18,7 @@ const ProfilePage = () => {
     }, []);
   
     return (
-        <div>
+        <div className='whole-profile'>
             <ProfileCard user={user} />
         </div>
     )
