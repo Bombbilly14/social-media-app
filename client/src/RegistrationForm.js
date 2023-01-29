@@ -68,7 +68,9 @@ function RegistrationForm({setUser}) {
         placeholder="Confirm Password"
           />
           <br />
-        <input className="inputCreate" type= "submit" value="Create Profile" />
+          <div className="button-container">
+        <input className="inputCreate"type= "submit" value="Create Profile"  />
+        </div>
     </form>
     </>
   )

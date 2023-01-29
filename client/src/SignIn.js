@@ -7,6 +7,7 @@ function SignIn({setUser}) {
     const [name, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    const [error, setError] = useState("")
 
     const login = (e) => {
         e.preventDefault()
@@ -23,6 +24,8 @@ function SignIn({setUser}) {
       setUser(data)
       // localStorage.setItem('user','test')
       navigate("/profile")
+      } else {
+        setError(data.error)
       }
     })
     }
@@ -32,7 +35,7 @@ function SignIn({setUser}) {
     <div className="sign-in-form">
 
     <>
-    {/* <h2>Sign in</h2> */}
+    {error && <p className="error-message">{error}</p>}
     <form onSubmit={login}>
         <label htmlFor="signInName"></label>
         <input
