@@ -1,13 +1,17 @@
-// import React from "react";
+import React from 'react';
+import './styles/SubmitButton.css';
 
-// function Button({word}) {
-//   return (
-//     <a className="h-button center" data-text="Hover me" href="#" aria-label={word}>
-//       {word.split('').map((letter, index) => (
-//         <span key={index}>{letter}</span>
-//       ))}
-//     </a>
-//   );
-// }
+const SubmitButton = ({handleSubmit}) => {
+  return (
+    <div id="holder">
+      <div class="button" onClick={handleSubmit}>
+        <p class="btnText">READY?</p>
+        <div class="btnTwo">
+          <p class="btnText2">VENT!</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-// export default Button;
+export default SubmitButton;
