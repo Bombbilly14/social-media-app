@@ -27,21 +27,21 @@ export const navData = [
         text: "Profile",
         link: "/profile"
     },
-    {
-        id: 2,
-        icon: <SendIcon/>,
-        text: "Messages",
-        link: "/messages"
-    },
-    {
-        id: 3,
-        icon: <NotificationsIcon/>,
-        text: "Notifications",
-        link: "/notifications"
-    },
+    // {
+    //     id: 2,
+    //     icon: <SendIcon/>,
+    //     text: "Messages",
+    //     link: "/messages"
+    // },
+    // {
+    //     id: 3,
+    //     icon: <NotificationsIcon/>,
+    //     text: "Notifications",
+    //     link: "/notifications"
+    // },
 
     {
-        id: 5,
+        id: 2,
         icon: <HowToRegIcon/>,
         text: "Signup/Login",
         link: "/signin"
