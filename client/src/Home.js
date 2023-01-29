@@ -28,8 +28,8 @@ const Home = () => {
 })
 
   return (
-    <div className='whole-dashboard'>
-      <h1>Welcome</h1>
+    <div className='welcome'>
+      Welcome
       {mappedPosts}
     </div>
   )
