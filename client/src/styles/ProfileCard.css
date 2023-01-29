@@ -141,7 +141,7 @@ button {
 
 
 .card-container {
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -149,8 +149,11 @@ button {
   box-shadow: 0px 0px 10px #ccc;
   background-color: #fff;
   padding: 20px;
-  padding-left: 9cm;
-  padding-right: 10cm;
+  /* padding-left: 9cm;
+  padding-right: 10cm; */
+  height: auto;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, #ba5370, #f4e2d8);
 }
 
 .card-header-container {
@@ -172,15 +175,17 @@ button {
 }
 
 .card-bio {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 20px;
   line-height: 1.5;
+  font-weight: bold;
 }
 
 .card-posts {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  
 }
 
 .card-post {
@@ -188,7 +193,7 @@ button {
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-image: linear-gradient(to bottom right, #141e30, #243b55);
   box-shadow: 0px 0px 10px #ccc;
 }
 
@@ -196,6 +201,7 @@ button {
   font-size: 1.2em;
   margin-bottom: 10px;
   line-height: 1.5;
+  color: white;
 }
 
 .card-post-footer {

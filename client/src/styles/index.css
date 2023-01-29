@@ -14,5 +14,6 @@ code {
 
 html {
   background-image: linear-gradient(to bottom right, #4568dc, #b06ab3);
-  height: 150%;
+  height: auto;
+  min-height: auto;
 }

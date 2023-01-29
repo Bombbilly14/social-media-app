@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import MyProfileCard from "./MyProfileCard"
+import './styles/MyProfile.css'
 
 const MyProfile = () => {
   const [user, setUser] = useState()
@@ -14,7 +15,7 @@ const MyProfile = () => {
      )
   }, [])
   return (
-    <div>
+    <div className='my-profile'>
       <MyProfileCard user={user} setUser={setUser}/>
     </div>
   )
