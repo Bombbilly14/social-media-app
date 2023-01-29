@@ -8,21 +8,22 @@ export const navData = [
     {
         id: 0,
         icon: <HomeIcon/>,
-        text: "Home",
+        text: <span style={{ fontWeight: 'bold'}}>Home</span>,
         link: "/"
     },
     {
         id: 1,
         icon: <AccountCircleIcon/>,
-        text: "Profile",
+        text: <span style={{ fontWeight: 'bold'}}>Profile</span>,
         link: "/profile"
     },
  
     {
         id: 2,
         icon: <LoginIcon/>,
-        text: "Signup/Login",
+        text: <span style={{ fontWeight: 'bold'}}>Logout</span>,
         link: "/signin"
     },
 
 ]
+// text: <span style={{ fontWeight: 'bold'}}>Ventbox</span>
