@@ -2,25 +2,18 @@
 import React, { useState } from "react";
 import './styles/Ventbox.css'
 import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import CreateIcon from '@mui/icons-material/Create';
 import styles from "./styles/navbar.module.css"
-import { ListItem } from "@mui/material";
 import { NavLink } from "react-router-dom"
 
 
-
-
-function Ventbox({style, linkText}) {
+function Ventbox() {
 
     const navigate = useNavigate()
 
-    
     const [popup,setPop] = useState(false);
     const [content, setContent] = useState("");
     const [textLimit, setTextLimit] = useState(250);
-    
-
     
     const handleClickOpen = () => {
         setPop(!popup);
@@ -73,7 +66,7 @@ function Ventbox({style, linkText}) {
                     <div className="main">
                         <div className="popup">
                             <div className="popup-header">
-                                <h1>What's on your mind?</h1>
+                                <h1 className='header-text'>What's on your mind?</h1>
                                 <button className="delete-button" onClick={closePopup}>X</button>
                             </div>
                             <div>
