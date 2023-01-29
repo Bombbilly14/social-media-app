@@ -2,9 +2,7 @@ import React from 'react'
 
 import {useState, useEffect} from 'react'
 import PostContainer from './PostContainer'
-// {/* Jasons code */}
-import ProfilePage from './ProfilePage'
-// {/* Jasons code */}
+import './styles/Home.css'
 
 const Home = () => {
 
@@ -30,11 +28,9 @@ const Home = () => {
 })
 
   return (
-    <div>Dashboard
+    <div className='whole-dashboard'>
+      <h1>Welcome</h1>
       {mappedPosts}
-      {/* Jasons code */}
-    {/* <ProfilePage /> */}
-    {/* Jasons code */}
     </div>
   )
 }
