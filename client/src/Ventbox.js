@@ -70,7 +70,7 @@ function Ventbox() {
                         <div className="popup">
                             <div className="popup-header">
                                 <h1 className='header-text'>What's on your mind?</h1>
-                                <button className="delete-button" onClick={closePopup}>X</button>
+                                {/* <button className="delete-button" onClick={closePopup}>X</button> */}
                             </div>
                             <div>
                                 <form onSubmit={handleSubmit}>
@@ -80,7 +80,7 @@ function Ventbox() {
                                         maxLength={250} 
                                     />
                                     <p>Characters remaining: {textLimit}</p>
-                                    <SubmitButton handleSubmit={handleSubmit}/>
+                                    <SubmitButton handleSubmit={handleSubmit} closePopup={closePopup}/>
                                     {/* <input className="post-button" type="submit"/> */}
                                 </form>
                             </div>
