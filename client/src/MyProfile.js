@@ -15,7 +15,7 @@ const MyProfile = () => {
   }, [])
   return (
     <div>
-      <MyProfileCard user={user}/>
+      <MyProfileCard user={user} setUser={setUser}/>
     </div>
   )
 }
