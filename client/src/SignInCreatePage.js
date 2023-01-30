@@ -28,6 +28,11 @@ function SignInCreatePage({user, setUser}) {
     return (
       <div>
          <div>
+           <div>
+           <header>
+       <h2 className="h2-loop">The Loop 🔁</h2>
+       </header>
+           </div>
          <video
             className='share-video'
             src={shareVideo}

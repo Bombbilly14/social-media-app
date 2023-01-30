@@ -2,6 +2,7 @@ import './styles/ProfileCard.css';
 import { useParams } from 'react-router-dom'
 import { useState } from 'react';
 
+
 const MyProfileCard = ({ user, setUser }) => {
   const [editing, setEditing] = useState(false);
   const [newBio, setNewBio] = useState("");
@@ -44,7 +45,9 @@ const handleSubmit = async (event) => {
     setEditingPost({...post});
   }
 
-  const handlePostSave = async (post) => {
+  const handlePostSave = async (post, e) => {
+    e.preventDefault()
+
     try {
       const response = await fetch(`/users/${user.id}/posts/${post.id}`, {
         method: 'PATCH',
@@ -52,19 +55,20 @@ const handleSubmit = async (event) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          content: post.content,
+          content: editingPost.content
         }),
       });
       if (response.ok) {
+        // console.log(response)
+        setUser({...user, posts: user.posts.map(p => p.id === post.id ? editingPost : p)})
         setEditingPost(null);
-        setUser({...user, posts: user.posts.map(p => p.id === post.id ? post : p)})
       } else {
       }
     } catch (error) {
       console.error(error);
     }
   }
-
+  // console.log(user)
   const handlePostDelete = (post) => {
     fetch(`/users/${user.id}/posts/${post.id}`, {
     method: 'DELETE',
@@ -89,13 +93,13 @@ const handleSubmit = async (event) => {
       </div>
       { editing ? (
         <form onSubmit={handleSubmit}>
-          <input type="text" value={newBio} onChange={(event) => setNewBio(event.target.value)}/>
-          <button type="submit">Save</button>
+          <input className="margin-input"type="text" value={newBio} onChange={(event) => setNewBio(event.target.value)}/>
+          <button className="button-create"type="submit">Save</button>
         </form>
       ) : (
         <>
           <p className="card-bio">Bio: {user.bio}</p>
-          <button onClick={handleEdit}>Edit</button>
+          <button className="button-create" onClick={handleEdit}>Edit</button>
         </>
       )}
       <div className="card-posts">
@@ -103,17 +107,19 @@ const handleSubmit = async (event) => {
           <div key={post.id} className="card-post">
             {editingPost && editingPost.id === post.id ? (
               <>
+              <form onSubmit={(e) => handlePostSave(post, e) }>
                 <input type="text" value={editingPost.content} onChange={(event) => setEditingPost({...editingPost, content: event.target.value})}/>
-                <button onClick={() => handlePostSave(editingPost)}>Save</button>
-                <button onClick={() => setEditingPost(null)}>Cancel</button>
+                <button type="submit" className="button-create">Save</button>
+                <button className="button-create">Cancel</button>
+                </form>
               </>
             ) : (
               <>
                 <p className="card-post-content">{post.content}</p>
                 <div className="card-post-footer">
                   <p className="card-post-date">{post.date}</p>
-                  <button onClick={() => handlePostEdit(post)}>Edit</button>
-                  <button onClick={() => handlePostDelete(post)}>Delete</button>
+                  <button className="button-create"onClick={() => handlePostEdit(post)}>Edit</button>
+                  <button className="button-create"onClick={() => handlePostDelete(post)}>Delete</button>
                 </div>
               </>
             )}
