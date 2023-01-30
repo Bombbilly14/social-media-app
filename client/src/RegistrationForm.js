@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 function RegistrationForm({setUser}) {
   const [name, setUsername] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -26,7 +27,7 @@ function RegistrationForm({setUser}) {
     headers: {
         "Content-Type": "application/json",
     },
-    body: JSON.stringify({name, password}),
+    body: JSON.stringify({name, email, password}),
 })
 .then(r => r.json())
 .then((data) => {
@@ -50,6 +51,13 @@ function RegistrationForm({setUser}) {
         onChange={ e => setUsername(e.target.value)}
         placeholder="Name"/>
         <br />
+         <label htmlFor="email"></label>
+        <input
+        id="email"
+        value={email}
+        onChange={ e => setEmail(e.target.value)}
+        placeholder="Email"/>
+        <br />
         <label htmlFor="password"></label>
         <input
         type="password"
@@ -68,7 +76,9 @@ function RegistrationForm({setUser}) {
         placeholder="Confirm Password"
           />
           <br />
-        <input className="inputCreate" type= "submit" value="Create Profile" />
+          <div className="button-container">
+        <input className="inputCreate"type= "submit" value="Create Profile"  />
+        </div>
     </form>
     </>
   )

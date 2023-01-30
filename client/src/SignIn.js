@@ -4,9 +4,10 @@ import RegistrationForm from './RegistrationForm'
 import { useNavigate } from "react-router-dom";
 
 function SignIn({setUser}) {
-    const [name, setUsername] = useState("")
+    const [email, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    const [error, setError] = useState("")
 
     const login = (e) => {
         e.preventDefault()
@@ -15,7 +16,7 @@ function SignIn({setUser}) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({name, password}),
+        body: JSON.stringify({email, password}),
     })
     .then(r => r.json())
     .then((data) => {
@@ -23,6 +24,8 @@ function SignIn({setUser}) {
       setUser(data)
       // localStorage.setItem('user','test')
       navigate("/profile")
+      } else {
+        setError(data.error)
       }
     })
     }
@@ -32,14 +35,14 @@ function SignIn({setUser}) {
     <div className="sign-in-form">
 
     <>
-    {/* <h2>Sign in</h2> */}
+    {error && <p className="error-message">{error}</p>}
     <form onSubmit={login}>
         <label htmlFor="signInName"></label>
         <input
         id="signInName"
-        value={name}
+        value={email}
         onChange={ e => setUsername(e.target.value)}
-        placeholder="Name"/>
+        placeholder="Email"/>
         
         <br />
         <label htmlFor="signInPassword"></label>

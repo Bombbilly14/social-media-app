@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const MyProfileCard = ({ user, setUser }) => {
   const [editing, setEditing] = useState(false);
-  const [newBio, setNewBio] = useState(null);
+  const [newBio, setNewBio] = useState("");
   const [editingPost, setEditingPost] = useState(null);
   const {username} = useParams()
   if(!user){
