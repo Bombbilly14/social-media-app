@@ -124,7 +124,7 @@ const handleSubmit = async (event) => {
                 <p className="card-post-content">{post.content}</p>
                 <div className="card-post-footer">
                 <FormattedTime className="time-posted" created_at={post.created_at} />
-                  <button className="button-create"onClick={() => handlePostEdit(post)}>Edit</button>
+                  <button className="button-create button-margin"onClick={() => handlePostEdit(post)}>Edit</button>
                   <button className="button-create"onClick={() => handlePostDelete(post)}>Delete</button>
                 </div>
               </>

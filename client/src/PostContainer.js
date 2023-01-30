@@ -51,7 +51,7 @@ const PostContainer = (post) => {
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />
-                <button className="see-thread-button button-react" onClick={() => setShowComments(!showComments)}>
+                <button className="button-create" onClick={() => setShowComments(!showComments)}>
                     {showComments ? 'Hide Thread' : 'See Thread'}
                 </button>
                 {showComments && (
@@ -69,7 +69,7 @@ const PostContainer = (post) => {
                                 value={newComment}
                                 onChange={handleChange} 
                             />
-                            <button type="submit">Post</button>
+                            <button className="button-create" type="submit">Post</button>
                         </form>
                     </div>
                 )}
