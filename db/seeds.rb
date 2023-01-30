@@ -10,9 +10,9 @@ require 'faker'
     puts "🌱 Seeding data..."
     
 
-    u1=User.create(name: "Jason T", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "ex1@ex1.com", password: "password", avatar: Faker::Avatar.image)
-    u2=User.create(name: "William G", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "ex2@ex2.com", password: "password", avatar: Faker::Avatar.image)
-    u3=User.create(name: "Ryan S", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "ex3@ex3.com", password: "password", avatar: Faker::Avatar.image)
+    u1=User.create(name: "Jason T", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "jason@loop.com", password: "password", avatar: Faker::Avatar.image)
+    u2=User.create(name: "William G", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "william@loop.com", password: "password", avatar: Faker::Avatar.image)
+    u3=User.create(name: "Ryan S", bio: Faker::Hipster.paragraph(sentence_count: 3), email: "ryan@loop.com", password: "password", avatar: Faker::Avatar.image)
 
 
     Faker::Config.locale = 'en'
