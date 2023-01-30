@@ -9,7 +9,7 @@ import SubmitButton from './SubmitButton'
 
 
 
-function Ventbox() {
+function Ventbox({user}) {
 
     const navigate = useNavigate()
 
@@ -69,7 +69,7 @@ function Ventbox() {
                     <div className="main">
                         <div className="popup">
                             <div className="popup-header">
-                                <h1 className='header-text'>What's on your mind?</h1>
+                                <h1 className='header-text'>What's on your mind, {user.name}?</h1>
                                 {/* <button className="delete-button" onClick={closePopup}>X</button> */}
                             </div>
                             <div>

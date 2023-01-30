@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import PostContainer from './PostContainer'
 import './styles/Home.css'
 
-const Home = () => {
+const Home = ({user}) => {
 
   const [posts, setPosts] = useState([])
 
@@ -29,8 +29,9 @@ const Home = () => {
 
   return (
     <div className='welcome'>
-      Welcome
-      {mappedPosts}
+      {user.name}'s Dashboard
+      <div>{mappedPosts}</div>
+      
     </div>
   )
 }
