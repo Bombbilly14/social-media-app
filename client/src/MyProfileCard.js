@@ -1,6 +1,7 @@
 import './styles/ProfileCard.css';
 import { useParams } from 'react-router-dom'
 import { useState } from 'react';
+import moment from 'moment';
 
 
 const MyProfileCard = ({ user, setUser }) => {
@@ -15,6 +16,11 @@ const MyProfileCard = ({ user, setUser }) => {
   const handleEdit = () => {
     setEditing(!editing);
   }
+
+  const FormattedTime = ({ created_at }) => {
+    const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
+    return <p style={{color: "white"}}>{formattedTime}</p>;
+};
 
 
 const handleSubmit = async (event) => {
@@ -117,7 +123,7 @@ const handleSubmit = async (event) => {
               <>
                 <p className="card-post-content">{post.content}</p>
                 <div className="card-post-footer">
-                  <p className="card-post-date">{post.date}</p>
+                <FormattedTime className="time-posted" created_at={post.created_at} />
                   <button className="button-create"onClick={() => handlePostEdit(post)}>Edit</button>
                   <button className="button-create"onClick={() => handlePostDelete(post)}>Delete</button>
                 </div>
