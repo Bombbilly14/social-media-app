@@ -28,7 +28,7 @@ const LikeButton = () => {
   };
 
   return (
-    <button className={ `like-button ${isClicked && 'liked'} button-react`  }  onClick={ handleClick }>
+    <button className={ `like-button ${isClicked && 'liked'} button-react button-create`  }  onClick={ handleClick }>
       <span className="likes-counter">{ `React | ${likes}` }</span>
     </button>
   );
