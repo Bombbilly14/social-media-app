@@ -8,6 +8,7 @@
       /* margin-top: 20px; */
       cursor: pointer;
       margin-top: 50px;
+      width: 100px;
     }
     .button-create:hover {
       padding: 10px 30px;

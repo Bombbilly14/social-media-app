@@ -99,7 +99,7 @@ const handleSubmit = async (event) => {
       ) : (
         <>
           <p className="card-bio">Bio: {user.bio}</p>
-          <button className="button-create" onClick={handleEdit}>Edit</button>
+          <button className="button-create button-bio" onClick={handleEdit}>Edit</button>
         </>
       )}
       <div className="card-posts">
