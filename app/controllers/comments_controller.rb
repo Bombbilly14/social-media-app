@@ -17,6 +17,11 @@ class CommentsController < ApplicationController
         render json: comment, status: :accepted
     end
 
+    def show
+        comment = Comment.find(params[:id])
+        render json: comment
+    end
+
     private
 
     def comment_params

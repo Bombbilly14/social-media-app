@@ -4,15 +4,16 @@ import moment from 'moment';
 import LikeButton from "./LikeButton";
 import ProfilePage from "./ProfilePage";
 
-const PostContainer = (post) => {
+const PostContainer = (post, comment) => {
     const [showComments, setShowComments] = useState(false);
-    const [newComment, setNewComment] = useState("");
+    const [newComment, setNewComment] = useState();
+    const [comments, setComments] = useState();
+    
 
     const FormattedTime = ({ created_at }) => {
         const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
         return <p>{formattedTime}</p>;
     };
-
 
     const handleChange = e => {
         setNewComment(e.target.value);
@@ -21,7 +22,7 @@ const PostContainer = (post) => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await fetch(`/posts`, {
+            const response = await fetch(`/posts/${post.id}/comments/${comment.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,13 +30,17 @@ const PostContainer = (post) => {
                 body: JSON.stringify({ content: newComment })
             });
             const data = await response.json();
-            setNewComment([...newComment, data]);
+            // update the comments array with the new comment
+            setComments([...post.comments, data]);
+            // reset the newComment state variable
+            setNewComment("");
         }
         catch (error) {
             console.error(error);
         }
     }
     
+
     return (
         <div className="card post">
             <div className="post-header">
@@ -46,7 +51,6 @@ const PostContainer = (post) => {
             </div>
             <div className="post-body">
                 <p className="post-content">{post.content}</p>
-
                 <FormattedTime created_at={post.created_at} />
             </div>
             <div className="post-footer">
@@ -78,4 +82,4 @@ const PostContainer = (post) => {
     );
 };
 
-export default PostContainer;
+export default PostContainer
