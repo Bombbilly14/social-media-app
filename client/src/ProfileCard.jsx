@@ -1,4 +1,11 @@
 import './styles/ProfileCard.css';
+import moment from 'moment';
+
+const FormattedTime = ({ created_at }) => {
+  const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
+  return <p style={{color: "white"}}>{formattedTime}</p>;
+};
+
 
 const ProfileCard = ({ user }) => {
   if(!user){
@@ -17,7 +24,7 @@ const ProfileCard = ({ user }) => {
           <div key={post.id} className="card-post">
             <p className="card-post-content">{post.content}</p>
             <div className="card-post-footer">
-              <p className="card-post-date">{post.date}</p>
+            <FormattedTime className="time-posted" created_at={post.created_at} />
             </div>
           </div>
         ))}
