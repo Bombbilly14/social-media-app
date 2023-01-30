@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-     {user ? <NavBar /> : null}
+     {user ? <NavBar user={user}/> : null}
       {/* <NavBar /> */}
     <div className="App">
 
@@ -47,7 +47,7 @@ function App() {
         <Route path="/profile" element={<MyProfile/>} />
         <Route path="/messages" element={<Messages/>} />
         <Route path="/notifications" element={<Notifications/>} />
-        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/" element={<Home user={user}/>} />
         <Route path="/users/:username" element={<ProfilePage />} />
         <Route path="/vent" element={<Ventbox />} />
         </Route>

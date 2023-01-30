@@ -153,7 +153,8 @@ button {
   padding-right: 10cm; */
   height: auto;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom right, #ba5370, #f4e2d8);
+  background-image: linear-gradient(to bottom right, #bdc3c7,  #2c3e50);
+  
 }
 
 .card-header-container {
@@ -185,8 +186,9 @@ button {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  
 }
+
+
 
 .card-post {
   width: 100%;
@@ -195,6 +197,7 @@ button {
   border-radius: 5px;
   background-image: linear-gradient(to bottom right, #141e30, #243b55);
   box-shadow: 0px 0px 10px #ccc;
+  
 }
 
 .card-post-content {

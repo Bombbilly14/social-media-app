@@ -9,7 +9,7 @@ import Ventbox from './Ventbox'
 
 
 
-export default function NavBar() {
+export default function NavBar({user}) {
 
   const [open, setopen] = useState(false)
 
@@ -29,7 +29,7 @@ export default function NavBar() {
               <span className={styles.linkText}>{item.text}</span>
           </NavLink>
           })}
-              <Ventbox />
+              <Ventbox user={user}/>
       </div>
     )
   }
