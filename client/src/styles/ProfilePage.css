@@ -3,7 +3,6 @@ overflow: hidden;
 }
 
 button.button-bio {
-    width: 100px;  
     align-self: flex-end;
     margin-right: 20px;
 }
