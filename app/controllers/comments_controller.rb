@@ -7,9 +7,11 @@ class CommentsController < ApplicationController
     end
 
     def create
-        comment = logged_in_user.comments.create!(comment_params)
+        # post = Post.find(params[:post_id])
+        comment = post.comments.create!(comment_params.merge(user_id: logged_in_user.id))
         render json: comment, status: :created
-    end
+      end
+      
 
     def update
         comment = Comment.find(params[:id])

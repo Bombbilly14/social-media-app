@@ -7,6 +7,7 @@ import ProfilePage from "./ProfilePage";
 const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState("");
+    const [loggedInUser, setLoggedInUser] = useState("Ryan S");
 
     const FormattedTime = ({ created_at }) => {
         const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
@@ -14,28 +15,32 @@ const PostContainer = (post) => {
     };
 
 
-    const handleChange = e => {
-        setNewComment(e.target.value);
-    }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        try {
-            const response = await fetch(`/posts`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ content: newComment })
-            });
-            const data = await response.json();
-            setNewComment([...newComment, data]);
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
     
+        const response = await fetch(`posts/${post.id}/comments`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: loggedInUser,
+                content: newComment
+            })
+        });
+    
+        if (response.ok) {
+            // request was successful, update the UI to show the new comment
+            post.comments.push({ name: loggedInUser, content: newComment });
+            setNewComment("");
+        } else {
+            // request failed, show an error message
+            console.error('Error saving comment');
+        }
+    };
+    
+
     return (
         <div className="card post">
             <div className="post-header">
@@ -67,7 +72,7 @@ const PostContainer = (post) => {
                                 type="text"
                                 placeholder="Add a comment..."
                                 value={newComment}
-                                onChange={handleChange} 
+                                onChange={(event) => setNewComment(event.target.value)}
                             />
                             <button type="submit">Post</button>
                         </form>
