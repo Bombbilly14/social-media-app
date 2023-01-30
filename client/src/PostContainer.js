@@ -7,6 +7,7 @@ import ProfilePage from "./ProfilePage";
 const PostContainer = (post) => {
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState("");
+    const {loggedInUser, setLoggedInUser} = useState("")
 
     const FormattedTime = ({ created_at }) => {
         const formattedTime = moment.utc(created_at).local().format("MMMM Do YYYY, h:mmA");
@@ -18,23 +19,29 @@ const PostContainer = (post) => {
         setNewComment(e.target.value);
     }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        try {
-            const response = await fetch(`/posts`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ content: newComment })
-            });
-            const data = await response.json();
-            setNewComment([...newComment, data]);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        const response = await fetch(`/posts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: loggedInUser,
+                content: newComment
+            })
+        });
+    
+        if (response.ok) {
+            // request was successful, update the UI to show the new comment
+            post.comments.push({ name: loggedInUser, content: newComment });
+            setNewComment("");
+        } else {
+            // request failed, show an error message
+            console.error('Error saving comment');
         }
-        catch (error) {
-            console.error(error);
-        }
-    }
+    };
     
     return (
         <div className="card post">
@@ -51,7 +58,7 @@ const PostContainer = (post) => {
             </div>
             <div className="post-footer">
                 <LikeButton className="post-like-button" />
-                <button className="button-create" onClick={() => setShowComments(!showComments)}>
+                <button className="see-thread-button button-react" onClick={() => setShowComments(!showComments)}>
                     {showComments ? 'Hide Thread' : 'See Thread'}
                 </button>
                 {showComments && (
@@ -69,7 +76,7 @@ const PostContainer = (post) => {
                                 value={newComment}
                                 onChange={handleChange} 
                             />
-                            <button className="button-create" type="submit">Post</button>
+                            <button type="submit">Post</button>
                         </form>
                     </div>
                 )}
