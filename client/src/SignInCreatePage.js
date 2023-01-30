@@ -11,21 +11,7 @@ function SignInCreatePage({user, setUser}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
-  // const [user, setUser] = useState()
-    
-
-  //   useEffect(()=> {
-  //     fetch('/me')
-  //     .then(r => r.json())
-  //     .then(data => {
-  //       if(data.error) {
-  //         setUser(null)
-  //       } else {
-  //       setUser(data)
-  //       }
-  //     } )
-  //   }, [])
-
+ 
     const logout = () => {
       fetch('/logout', {
       method: "DELETE",
@@ -50,8 +36,8 @@ function SignInCreatePage({user, setUser}) {
             autoPlay
           />
         <div className="modalParent">
-        
-        {user ? <button onClick={logout}>Logout</button> : null}
+
+        {user ? <button className="button-create" onClick={logout}>Logout</button> : null}
         <h1>Welcome {user ? ` ${user.name}` : null}</h1>
         {user === null ? (
           <>
