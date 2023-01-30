@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import CreateIcon from '@mui/icons-material/Create';
 import styles from "./styles/navbar.module.css"
 import { NavLink } from "react-router-dom"
+import SubmitButton from './SubmitButton'
+
 
 
 function Ventbox() {
@@ -68,7 +70,7 @@ function Ventbox() {
                         <div className="popup">
                             <div className="popup-header">
                                 <h1 className='header-text'>What's on your mind?</h1>
-                                <button className="delete-button" onClick={closePopup}>X</button>
+                                {/* <button className="delete-button" onClick={closePopup}>X</button> */}
                             </div>
                             <div>
                                 <form onSubmit={handleSubmit}>
@@ -78,7 +80,8 @@ function Ventbox() {
                                         maxLength={250} 
                                     />
                                     <p>Characters remaining: {textLimit}</p>
-                                    <input className="post-button" type="submit"/>
+                                    <SubmitButton handleSubmit={handleSubmit} closePopup={closePopup}/>
+                                    {/* <input className="post-button" type="submit"/> */}
                                 </form>
                             </div>
                         </div>
