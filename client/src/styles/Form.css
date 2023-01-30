@@ -119,8 +119,21 @@
       z-index: -1;
   }
   
-    
-  
+.margin-input{
+    margin-right: 10px
+}
+.h2-loop {
+  color: white;
+  font-size: 3em;
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  left: 30%;
+  top: 35%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0;
+  background: none;
+}
   
   
   
